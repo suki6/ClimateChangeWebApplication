@@ -1,8 +1,8 @@
 package com.climatechangeapp.client;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
+//import java.io.Serializable;
+//import java.util.ArrayList;
+//import java.util.Date;
 
 /**
  * This class defines the informations of the temperature 
@@ -10,17 +10,18 @@ import java.util.Date;
  * @author suki
  *
  */
-public class Temperature implements Serializable {
+public class Temperature {
+//implements Serializable {
 	
 	
-	private static final long serialVersionUID = -4242872550826180719L;
-	private Date date;
+//	private static final long serialVersionUID = -4242872550826180719L;
+	private String date;
 	private Integer averageTemp;
 	private Integer averageTempUncertainty;
-	private ArrayList<String> city = new ArrayList <String>();
-	private ArrayList<String> country = new ArrayList <String>();;
-	private ArrayList<String> latitude = new ArrayList <String>();;
-	private ArrayList<String> longitude = new ArrayList <String>();;
+	private String city;
+	private String country;
+	private String latitude;
+	private String longitude; 
 	
 	/**
 	 * Constructor of the class Temperature 
@@ -32,7 +33,7 @@ public class Temperature implements Serializable {
 	 * @param latitude The geographical latitude in format ##.##[N|S]
 	 * @param longitude The geographical longitude in format ##.##[W|E ]
 	 */
-	public Temperature(Date date, Integer averageTemp, Integer averageTempUncertainty, ArrayList<String> city, ArrayList<String> country,	ArrayList<String> latitude,	ArrayList<String> longitude) {
+	public Temperature(String date, Integer averageTemp, Integer averageTempUncertainty, String city, String country, String latitude,	String longitude) {
 		this.date = date;
 		this.averageTemp = averageTemp;
 		this.averageTempUncertainty = averageTempUncertainty;
@@ -47,11 +48,11 @@ public class Temperature implements Serializable {
 		
 	}
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	
-	public void setDate(Date date){
+	public void setDate(String date){
 		this.date = date;
 	}
 	
@@ -63,19 +64,19 @@ public class Temperature implements Serializable {
 		return averageTempUncertainty;
 	}
 	
-	public ArrayList<String> getCity() {
+	public String getCity() {
 		return city;
 	}
 
-	public ArrayList<String> getCountry() {
+	public String getCountry() {
 		return country;
 	}
 	
-	public ArrayList<String> getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 	
-	public ArrayList<String> getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 	

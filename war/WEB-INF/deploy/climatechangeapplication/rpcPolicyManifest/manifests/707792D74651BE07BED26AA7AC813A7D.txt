@@ -1,2 +1,0 @@
-serviceClass: com.climatechangeapp.client.GreetingService
-path: 28EEEC5EE514C42C3DAE0DA1F19F3404.gwt.rpc
