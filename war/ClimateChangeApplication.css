@@ -1,4 +1,44 @@
 /** Add css rules here for your application. */
+/*Footer: provides design for the data source declaration*/
+footer {
+	background-color: dimgrey;		/*Balkenfarbe*/
+	display:inline-block;			/*Text Zentrieren*/
+	position: fixed;				/*Wird immer angezeigt*/
+	opacity: 0.75;					/*Transparenz der Fusszeile*/
+	bottom: 0px;					/*Standort Fusszeile*/
+	left: 0px;						/*Standort Fusszeile*/
+	width:100%;						/*Grösse Fusszeile*/
+	font-family: sans-serif;		/*Schriftart*/
+	font-style: normal;				/*Schriftart*/
+	font-size: 1.2em;				/*Schriftart für mobile Plattformen optimiert*/
+}
+
+ul.footer {
+	list-style-type: none;			/*Keine Listensymbole*/
+	margin: 0;						/*Zur Deaktivierung der äusseren Füllung*/
+	padding: 0;						/*Zur Deaktivierung der inneren Füllung*/
+	position: relative;
+	float: left;					/*Ausrictung der Tabelle*/
+	left: 10px;						/*Beginn der Tabelle*/
+}
+
+li.footer {
+	float: left;					/*Ausrichtung Zelle*/
+	width: 100%;					/*Zellenbreite, oder 500px*/
+	position: relative;
+}
+
+a.footer {
+	/*text-align: center;				/*Wahrscheinlich unnötig, ev für meherere Zellen notwenig, wenn grösse ungleich 100%*/
+	display: block;					/*Notwendig für Padding*/
+	padding: 8px;					/*Füllung um dem Text, welche weiterhin als Teil des Textes/Links gezählt wird.*/
+	font-weight: bold;
+	color: lightgrey;
+	text-decoration: none;			/*Kein Design wie bei Klassischen Links*/
+}
+a.footer:hover {
+	color: white;
+}
 
 
 /** Example rules used by the template application (remove for your app) */
