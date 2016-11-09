@@ -16,8 +16,8 @@ public class Temperature {
 	
 //	private static final long serialVersionUID = -4242872550826180719L;
 	private String date;
-	private Integer averageTemp;
-	private Integer averageTempUncertainty;
+	private String averageTemp;
+	private String averageTempUncertainty;
 	private String city;
 	private String country;
 	private String latitude;
@@ -33,7 +33,7 @@ public class Temperature {
 	 * @param latitude The geographical latitude in format ##.##[N|S]
 	 * @param longitude The geographical longitude in format ##.##[W|E ]
 	 */
-	public Temperature(String date, Integer averageTemp, Integer averageTempUncertainty, String city, String country, String latitude,	String longitude) {
+	public Temperature(String date, String averageTemp, String averageTempUncertainty, String city, String country, String latitude,	String longitude) {
 		this.date = date;
 		this.averageTemp = averageTemp;
 		this.averageTempUncertainty = averageTempUncertainty;
@@ -44,9 +44,7 @@ public class Temperature {
 		
 	}
 	
-	public Temperature(){
-		
-	}
+
 	
 	public String getDate() {
 		return date;
@@ -56,11 +54,11 @@ public class Temperature {
 		this.date = date;
 	}
 	
-	public Integer getAverageTemp() {
+	public String getAverageTemp() {
 		return averageTemp;
 	}
 	
-	public Integer getAverageTempUncertainty() {
+	public String getAverageTempUncertainty() {
 		return averageTempUncertainty;
 	}
 	

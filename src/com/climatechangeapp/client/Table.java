@@ -1,33 +1,117 @@
 package com.climatechangeapp.client;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+
 
 public class Table {
 	
-	FlexTable flexTable = createFlexTable();
+	private static FlexTable flexTable = new FlexTable();
+	private static VerticalPanel vp = new VerticalPanel();
 
-	CellTable<Temperature> cellTableOfTemperature = new CellTable<Temperature>();
 	
-	TextColumn<Temperature> city = new TextColumn<Temperature>() {
-		public String getValue(Temperature object) {
-			return object.getCity();
-		}
-	};
-	
-	
-	
-	
-	private FlexTable createFlexTable() {
-		FlexTable flexTable = new FlexTable();
+	public static void initialize(){		
+		
+
+		
+
 		flexTable.setBorderWidth(1);
-		flexTable.setText(0, 0, "This is a test of flextable.");
+		flexTable.setText(0, 0, "TEST");
+		flexTable.setText(2, 2, "TEST2");
+	
 		flexTable.getFlexCellFormatter().setColSpan(1, 0, 3);
-		return flexTable;
+		
+	
+		List<Temperature> temperatures = new ArrayList<Temperature>(){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+	
+			{	
+			add(new Temperature("01.07.1980", "23°C", "3°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+			}
+		};
+		
+		CellTable<Temperature> cellTableOfTemperature = new CellTable<Temperature>();
+		// policy that determines how keyboard selection will work
+		cellTableOfTemperature.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
+
+		
+		TextColumn<Temperature> date = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getDate();
+			}
+		};
+		cellTableOfTemperature.addColumn(date, "Date");
+		
+		TextColumn<Temperature> averageTemp = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getAverageTemp();
+			}
+		};
+		cellTableOfTemperature.addColumn(averageTemp, "Average Temperature");
+		
+		TextColumn<Temperature> averageTempUncertainty = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getAverageTempUncertainty();
+			}
+		};
+		cellTableOfTemperature.addColumn(averageTempUncertainty, "Average Temperature Uncertainty");
+		
+		
+		
+		 // Add a text columns to show the details.	
+		TextColumn<Temperature> city = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getCity();
+			}
+		};
+		cellTableOfTemperature.addColumn(city, "City");
+
+		TextColumn<Temperature> country = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getCountry();
+			}
+		};
+		cellTableOfTemperature.addColumn(country, "Country");
+		
+		TextColumn<Temperature> latitude = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getLatitude();
+			}
+		};
+		cellTableOfTemperature.addColumn(latitude, "Country");
+		
+		TextColumn<Temperature> longitude = new TextColumn<Temperature>() {
+			public String getValue(Temperature object) {
+				return object.getLongitude();
+			}
+		};
+		cellTableOfTemperature.addColumn(longitude, "Country");
+		
+		vp.setBorderWidth(1);
+		vp.add(flexTable);
+		vp.add(cellTableOfTemperature);
+		
+		RootPanel.get("temperatureList").add(vp);
+	
+
+		
+		cellTableOfTemperature.setRowCount(temperatures.size(), true);
+		cellTableOfTemperature.setRowData(0, temperatures);
+		
+	
+
+	
 	}
-	
-	
 
 }
