@@ -13,28 +13,35 @@ import java.util.ArrayList;
 public class TemperatureList implements Serializable {
 
 	private static final long serialVersionUID = -5258406909930280750L;
-	private ArrayList<Temperature> temperatures;
-	
+	private ArrayList<Temperature> temperature = new ArrayList<Temperature>();
+
+
 	public TemperatureList() {
-		temperatures = new ArrayList<Temperature>();
+		temperature = new ArrayList<Temperature>();
 	}
+
 	
 	/*
 	 * Adds temperature to TemperatureList
 	 */
 	public void addTemperature(Temperature addedTemperature){
-		temperatures.add(addedTemperature);
+		temperature.add(addedTemperature);
 	}
 	
 	/*
 	 * Returns all temperatures of TemperatureList 
 	 */
 	public ArrayList<Temperature> getTemperature() {
-		return temperatures;
+		return temperature;
 	}
 	
 	public void setTemperature(ArrayList<Temperature> addedTemperature) {
-		this.temperatures = addedTemperature;
+		this.temperature = addedTemperature;
+	}
+
+	public void initTemperatureList(String string, String string2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

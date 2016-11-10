@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.user.cellview.client.CellTable;
-import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
+import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -38,6 +38,13 @@ public class Table {
 	
 			{	
 			add(new Temperature("01.07.1980", "23°C", "3°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+		/**	
+			for(int i=0; i<temperatures.size(); i++) {
+				
+				add(new Temperature(temperatures.get(i).getDate(), temperatures.get(i).getAverageTemp(), temperatures.get(i).getAverageTempUncertainty(), temperatures.get(i).getCity(), temperatures.get(i).getCountry(), temperatures.get(i).getLatitude(), temperatures.get(i).getLongitude()));
+
+			}
+		*/	
 			}
 		};
 		
@@ -89,14 +96,14 @@ public class Table {
 				return object.getLatitude();
 			}
 		};
-		cellTableOfTemperature.addColumn(latitude, "Country");
+		cellTableOfTemperature.addColumn(latitude, "Latitude");
 		
 		TextColumn<Temperature> longitude = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getLongitude();
 			}
 		};
-		cellTableOfTemperature.addColumn(longitude, "Country");
+		cellTableOfTemperature.addColumn(longitude, "Longitude");
 		
 		vp.setBorderWidth(1);
 		vp.add(flexTable);

@@ -1,5 +1,7 @@
 package com.climatechangeapp.client;
 
+import java.util.ArrayList;
+
 //import java.io.Serializable;
 //import java.util.ArrayList;
 //import java.util.Date;
@@ -13,6 +15,7 @@ package com.climatechangeapp.client;
 public class Temperature {
 //implements Serializable {
 	
+	private ArrayList<Temperature> temperature = new ArrayList<Temperature>();
 	
 //	private static final long serialVersionUID = -4242872550826180719L;
 	private String date;
@@ -46,6 +49,17 @@ public class Temperature {
 	
 
 	
+	public Temperature() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/*
+	 * Adds temperature to TemperatureList
+	 */
+	public void addTemperature(Temperature addedTemperature){
+		temperature.add(addedTemperature);
+	}
+
 	public String getDate() {
 		return date;
 	}
