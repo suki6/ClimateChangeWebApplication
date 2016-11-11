@@ -36,6 +36,7 @@ public class ClimateChangeApplication implements EntryPoint {
 	public void onModuleLoad() {
 
 		TableFilter.initFilter();
+		
 		Table.initialize();
 
 		

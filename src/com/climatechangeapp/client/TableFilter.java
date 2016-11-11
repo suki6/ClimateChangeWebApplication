@@ -80,16 +80,7 @@ public class TableFilter {
 				input.add(getFilterLatitude().getText());
 				input.add(getFilterLongitude().getText());
 
-	/**
-			  			sysOut = "Here";
-			 
-
-
-				sysOut = "Here2";
-				// String input = getFilterCity().getText();
-				RequestAPI.getMovieList(input);
-				sysOut = "Here3";
-	*/			
+		
 			}
 		});
 
@@ -103,9 +94,7 @@ public class TableFilter {
 		filterMenu.add(getFilterLongitude());
 
 		filterMenu.add(filterSub);
-		// vP.add(tableResult.filterTable);
 
-		// *******************DB Stuff*********************************
 
 	
 		RootPanel.get("temperatureList").add(filterVer);

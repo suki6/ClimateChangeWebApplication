@@ -22,12 +22,13 @@ public class Table {
 		
 
 		
-
-		flexTable.setBorderWidth(1);
-
+/**
+		flexTable.setBorderWidth(2);
+		flexTable.setText(0, 0, "Filter: ");
+		flexTable.setText(1, 1, "etc. ");
 	
 		flexTable.getFlexCellFormatter().setColSpan(1, 0, 3);
-		
+		**/
 	
 		List<Temperature> temperatures = new ArrayList<Temperature>(){
 			/**
