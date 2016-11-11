@@ -1,9 +1,6 @@
 package com.climatechangeapp.client;
 
 
-
-
-
 //import com.climatechangeapp.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 /**	
@@ -30,10 +27,11 @@ public class ClimateChangeApplication implements EntryPoint {
 	
 
 	public void onModuleLoad() {
+		
 		Table.initialize();
 
 		
-		
-		
 	}
+		
+		
 }
