@@ -14,6 +14,12 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SuggestBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+/**
+ * This class is the visualization of the table filter
+ * @author suki
+ *
+ */
+
 public class TableFilter {
 	
 	private static HorizontalPanel filterMenu = new HorizontalPanel();
@@ -47,9 +53,19 @@ public class TableFilter {
 	public static void initFilter() {
 
 		
+		
+		filterMenu.setTitle("Search, filter or group by categories");
+		filterDate.setSize("100px", "20px");
+		filterAverageTemp.setSize("155px", "20px");
+		filterAverageTempUncertainty.setSize("225px", "20px");
+		filterCity.setSize("58px", "20px");
+		filterCountry.setSize("90px", "20px");
+		filterLatitude.setSize("70px", "20px");
+		filterLongitude.setSize("75px", "20px");
+		
 		filterDate.getElement().setAttribute("placeholder", "Date");
 		filterAverageTemp.getElement().setAttribute("placeholder", "Average Temperature");
-		filterAverageTempUncertainty.getElement().setAttribute("placeholder", "Avg. Temp. Uncertainty");
+		filterAverageTempUncertainty.getElement().setAttribute("placeholder", "Average Temperature Uncertainty");
 		filterCity.getElement().setAttribute("placeholder", "City");
 		filterCountry.getElement().setAttribute("placeholder", "Country");
 		filterLatitude.getElement().setAttribute("placeholder", "Latitude");
@@ -83,6 +99,11 @@ public class TableFilter {
 		
 			}
 		});
+		
+		
+
+
+		
 
 		filterVer.add(filterMenu);
 		filterMenu.add(getFilterDate());
@@ -92,7 +113,6 @@ public class TableFilter {
 		filterMenu.add(getFilterCountry());
 		filterMenu.add(getFilterLatitude());
 		filterMenu.add(getFilterLongitude());
-
 		filterMenu.add(filterSub);
 
 
