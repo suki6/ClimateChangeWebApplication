@@ -13,7 +13,6 @@ public class Filter {
 	private double uncertainity=0;
 	private String Latitude=""; //German: Breitengrad
 	private String Longitude=""; //German: Längengrad
-	//Unsure, if Longitude and Latitude should be declared as string.
 	
 	public void resetFilter() {
 		dateInput = "";
