@@ -3,18 +3,17 @@ package com.climatechangeapp.client;
 //import java.text.SimpleDateFormat;
 
 public class Filter {
-	//Filterargumente gemäss der csv-Datei und User stories.
+	//Filter arguments according to the csv file and user stories.
 	private String dateInput;
 	/* private Date timestamp = new Date;
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-	Datumsformatierung gibt mir Kopfschmerzen */
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); */
 	private String country="";
 	private String city="";
 	private double averageTemperature=0;
 	private double uncertainity=0;
-	private String Latitude=""; //Breitengrad
-	private String Longitude=""; //Längengrad
-	//Unsicher, ob Längen- und Breitengrad als String deklariert werden sollen.
+	private String Latitude=""; //German: Breitengrad
+	private String Longitude=""; //German: Längengrad
+	//Unsure, if Longitude and Latitude should be declared as string.
 	
 	public void resetFilter() {
 		dateInput = "";
@@ -26,7 +25,6 @@ public class Filter {
 		Longitude="";
 }
 
-	//automatisch generiert
 	public String getDateInput() {
 		return dateInput;
 	}
