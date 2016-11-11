@@ -25,6 +25,7 @@ public class Filter {
 		Longitude="";
 }
 
+	
 	public String getDateInput() {
 		return dateInput;
 	}
