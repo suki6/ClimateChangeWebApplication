@@ -12,7 +12,7 @@ public class Filter {
 	private double averageTemperature=0;
 	private double uncertainity=0;
 	private String Latitude=""; //German: Breitengrad
-	private String Longitude=""; //German: Längengrad
+	private String Longitude=""; //German: Lï¿½ngengrad
 	
 	public void resetFilter() {
 		dateInput = "";
@@ -22,7 +22,7 @@ public class Filter {
 		uncertainity = 0;
 		Latitude="";
 		Longitude="";
-}
+	}
 
 	
 	public String getDateInput() {

@@ -1,10 +1,13 @@
 package com.climatechangeapp.client;
-
+/*
+ * 
+ *
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.climatechangeapp.server.CsvDataImport;
+*/
 //import com.climatechangeapp.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 /**	
@@ -32,15 +35,7 @@ public class ClimateChangeApplication implements EntryPoint {
 
 	public void onModuleLoad() {
 
-		try {
-			CsvDataImport.importCsv();
-
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		
+		TableFilter.initFilter();
 		Table.initialize();
 
 		

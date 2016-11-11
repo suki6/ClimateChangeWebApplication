@@ -24,8 +24,7 @@ public class Table {
 		
 
 		flexTable.setBorderWidth(1);
-		flexTable.setText(0, 0, "TEST");
-		flexTable.setText(2, 2, "TEST2");
+
 	
 		flexTable.getFlexCellFormatter().setColSpan(1, 0, 3);
 		
