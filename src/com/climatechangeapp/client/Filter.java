@@ -3,10 +3,10 @@ package com.climatechangeapp.client;
 //import java.text.SimpleDateFormat;
 
 public class Filter {
-	//Filter arguments according to the csv file and user stories.
-	private String dateInput;
-	/* private Date timestamp = new Date;
+	/*Filter arguments according to the csv file and user stories.
+ 	private Date timestamp = new Date;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); */
+	private String dateInput;
 	private String country="";
 	private String city="";
 	private double averageTemperature=0;
