@@ -36,7 +36,7 @@ public class Temperature {
 	 * @param latitude The geographical latitude in format ##.##[N|S]
 	 * @param longitude The geographical longitude in format ##.##[W|E ]
 	 */
-	public Temperature(String date, String averageTemp, String averageTempUncertainty, String city, String country, String latitude,	String longitude) {
+	public Temperature(String date, String averageTemp, String averageTempUncertainty, String city, String country, String latitude, String longitude) {
 		this.date = date;
 		this.averageTemp = averageTemp;
 		this.averageTempUncertainty = averageTempUncertainty;

@@ -1,6 +1,9 @@
 package com.climatechangeapp.server;
 
+import java.util.ArrayList;
+
 import com.climatechangeapp.client.Temperature;
+import com.climatechangeapp.client.TemperatureList;
 
 public class CsvConverter {
 
@@ -17,6 +20,9 @@ public class CsvConverter {
 		String longitude = row[6];
 		 		
 		Temperature temp = new Temperature(date, averageTemp, averageTempUncertainty, city, country, latitude, longitude);
+		TemperatureList.addTemperature(temp);
+		
+		
 		
 		return temp;
 	}

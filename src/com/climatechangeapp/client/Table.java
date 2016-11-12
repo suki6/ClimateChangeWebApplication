@@ -17,23 +17,15 @@ public class Table {
 	private static FlexTable flexTable = new FlexTable();
 	private static VerticalPanel vp = new VerticalPanel();
 
-	
+	/**
+	 * Initializes the table and displays the content of TemperatureList
+	 */
 	public static void initialize(){		
 		
 
 		
-/**
-		flexTable.setBorderWidth(2);
-		flexTable.setText(0, 0, "Filter: ");
-		flexTable.setText(1, 1, "etc. ");
-	
-		flexTable.getFlexCellFormatter().setColSpan(1, 0, 3);
-		**/
-	
 		List<Temperature> temperatures = new ArrayList<Temperature>(){
-			/**
-			 * 
-			 */
+
 			private static final long serialVersionUID = 1L;
 	
 			{	
@@ -49,61 +41,62 @@ public class Table {
 		};
 		
 		CellTable<Temperature> cellTableOfTemperature = new CellTable<Temperature>();
+		
 		// policy that determines how keyboard selection will work
 		cellTableOfTemperature.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
 
-		
+		// Add a text columns to show the details.
 		TextColumn<Temperature> date = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getDate();
 			}
 		};
-		cellTableOfTemperature.addColumn(date, "Date");
+		cellTableOfTemperature.addColumn(date, "Datum");
 		
 		TextColumn<Temperature> averageTemp = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getAverageTemp();
 			}
 		};
-		cellTableOfTemperature.addColumn(averageTemp, "Average Temperature");
+		cellTableOfTemperature.addColumn(averageTemp, "Durchschnittliche Temperatur");
 		
 		TextColumn<Temperature> averageTempUncertainty = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getAverageTempUncertainty();
 			}
 		};
-		cellTableOfTemperature.addColumn(averageTempUncertainty, "Average Temperature Uncertainty");
+		cellTableOfTemperature.addColumn(averageTempUncertainty, "Durchschnittliche Temperaturunsicherheit");
 		
 		
 		
-		 // Add a text columns to show the details.	
+			
 		TextColumn<Temperature> city = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getCity();
 			}
 		};
-		cellTableOfTemperature.addColumn(city, "City");
+		cellTableOfTemperature.addColumn(city, "Stadt");
 
 		TextColumn<Temperature> country = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getCountry();
 			}
 		};
-		cellTableOfTemperature.addColumn(country, "Country");
+		cellTableOfTemperature.addColumn(country, "Land");
 		
 		TextColumn<Temperature> latitude = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getLatitude();
 			}
 		};
-		cellTableOfTemperature.addColumn(latitude, "Latitude");
+		cellTableOfTemperature.addColumn(latitude, "Längengrad");
 		
 		TextColumn<Temperature> longitude = new TextColumn<Temperature>() {
 			public String getValue(Temperature object) {
 				return object.getLongitude();
 			}
 		};
-		cellTableOfTemperature.addColumn(longitude, "Longitude");
+		cellTableOfTemperature.addColumn(longitude, "Breitengrad");
 		
 		vp.setBorderWidth(1);
 		vp.add(flexTable);

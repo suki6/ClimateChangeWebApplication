@@ -7,7 +7,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -24,15 +23,10 @@ public class TableFilter {
 	
 	private static HorizontalPanel filterMenu = new HorizontalPanel();
 	private static PopupPanel filterPop = new PopupPanel();
-	private static PopupPanel sysPan = new PopupPanel();
-	private static Button sysBut = new Button("System out");
-	private static VerticalPanel sysVP = new VerticalPanel();
-	private static Label sysLab = new Label();
 	private static Button filterBut = new Button("Filter");
 	private static Button filterSub = new Button("Submit");
 	private static VerticalPanel filterVer = new VerticalPanel();
 
-	private String sysOut = "Start";	
 	
 	private static MultiWordSuggestOracle oracleDate = new MultiWordSuggestOracle();
 	private static MultiWordSuggestOracle oracleAverageTemp = new MultiWordSuggestOracle();
@@ -55,21 +49,21 @@ public class TableFilter {
 		
 		
 		filterMenu.setTitle("Search, filter or group by categories");
-		filterDate.setSize("100px", "20px");
-		filterAverageTemp.setSize("155px", "20px");
-		filterAverageTempUncertainty.setSize("225px", "20px");
+		filterDate.setSize("102px", "20px");
+		filterAverageTemp.setSize("197px", "20px");
+		filterAverageTempUncertainty.setSize("275px", "20px");
 		filterCity.setSize("58px", "20px");
 		filterCountry.setSize("90px", "20px");
-		filterLatitude.setSize("70px", "20px");
+		filterLatitude.setSize("90px", "20px");
 		filterLongitude.setSize("72px", "20px");
 		
-		filterDate.getElement().setAttribute("placeholder", "   Date");
-		filterAverageTemp.getElement().setAttribute("placeholder", "Average Temperature");
-		filterAverageTempUncertainty.getElement().setAttribute("placeholder", "Average Temperature Uncertainty");
-		filterCity.getElement().setAttribute("placeholder", "City");
-		filterCountry.getElement().setAttribute("placeholder", "Country");
-		filterLatitude.getElement().setAttribute("placeholder", "Latitude");
-		filterLongitude.getElement().setAttribute("placeholder", "Longitude");
+		filterDate.getElement().setAttribute("placeholder", "   Datum");
+		filterAverageTemp.getElement().setAttribute("placeholder", "Durchschnittliche Temperatur");
+		filterAverageTempUncertainty.getElement().setAttribute("placeholder", "Durchschnittliche Temperaturunsicherheit");
+		filterCity.getElement().setAttribute("placeholder", "Stadt");
+		filterCountry.getElement().setAttribute("placeholder", "Land");
+		filterLatitude.getElement().setAttribute("placeholder", "Längengrad");
+		filterLongitude.getElement().setAttribute("placeholder", "Breitengrad");
 		
 
 		filterPop.setSize("600px", "200px");
@@ -95,15 +89,10 @@ public class TableFilter {
 				input.add(getFilterCountry().getText());
 				input.add(getFilterLatitude().getText());
 				input.add(getFilterLongitude().getText());
-
-		
+				
+				
 			}
 		});
-		
-		
-
-
-		
 
 		filterVer.add(filterMenu);
 		filterMenu.add(getFilterDate());
@@ -114,9 +103,7 @@ public class TableFilter {
 		filterMenu.add(getFilterLatitude());
 		filterMenu.add(getFilterLongitude());
 		filterMenu.add(filterSub);
-
-
-	
+		
 		RootPanel.get("temperatureList").add(filterVer);
 
 	}

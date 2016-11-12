@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 /**
- * This class reads the temperature lists and clears the data
+ * This class stores the Temperature objects in list
  * 
  * @author suki
  *
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class TemperatureList implements Serializable {
 
 	private static final long serialVersionUID = -5258406909930280750L;
-	private ArrayList<Temperature> temperature = new ArrayList<Temperature>();
+	private static ArrayList<Temperature> temperature = new ArrayList<Temperature>();
 
 
 	public TemperatureList() {
@@ -21,28 +21,34 @@ public class TemperatureList implements Serializable {
 	}
 
 	
-	/*
-	 * Adds temperature to TemperatureList
+	/**
+	 * Adds a new Temperature to the TemperatureList
+	 * @param addedTemperature The Temperature which will be added to the TemperatureList
 	 */
-	public void addTemperature(Temperature addedTemperature){
+	public static void addTemperature(Temperature addedTemperature){
 		temperature.add(addedTemperature);
 	}
 	
-	/*
-	 * Returns all temperatures of TemperatureList 
+	/**
+	 * Returns all Temperature objects of the TemperatureList 
+	 * @return
 	 */
 	public ArrayList<Temperature> getTemperature() {
 		return temperature;
 	}
-	
+
+/**
 	public void setTemperature(ArrayList<Temperature> addedTemperature) {
 		this.temperature = addedTemperature;
 	}
+ */
 
-	public void initTemperatureList(String string, String string2) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Returns the number of Temperatures objects in the TemperatureList
+	 * @return int The size of the TemperatureList
+	 */
+	public int getTemperatureListSize() {
+		return temperature.size();
 	}
-	
 	
 }
