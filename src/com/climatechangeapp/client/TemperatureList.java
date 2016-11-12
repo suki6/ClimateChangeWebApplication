@@ -37,11 +37,11 @@ public class TemperatureList implements Serializable {
 		return temperature;
 	}
 
-/**
+
 	public void setTemperature(ArrayList<Temperature> addedTemperature) {
 		this.temperature = addedTemperature;
 	}
- */
+ 
 
 	/**
 	 * Returns the number of Temperatures objects in the TemperatureList

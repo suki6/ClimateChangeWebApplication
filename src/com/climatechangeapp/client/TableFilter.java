@@ -23,8 +23,8 @@ public class TableFilter {
 	
 	private static HorizontalPanel filterMenu = new HorizontalPanel();
 	private static PopupPanel filterPop = new PopupPanel();
-	private static Button filterBut = new Button("Filter");
-	private static Button filterSub = new Button("Submit");
+	private static Button filterButton = new Button("Filter");
+	private static Button filterSubmit = new Button("Submit");
 	private static VerticalPanel filterVer = new VerticalPanel();
 
 	
@@ -71,14 +71,14 @@ public class TableFilter {
 		filterPop.hide();
 		filterPop.setPopupPosition(5, 200);
 
-		filterBut.addClickHandler(new ClickHandler() {
+		filterButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				filterPop.show();
 				// oracleYear.add("aaaaaa");
 			}
 		});
 		
-		filterSub.addClickHandler(new ClickHandler() {
+		filterSubmit.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				ArrayList<String> input = new ArrayList<String>();
 				input.clear();
@@ -102,7 +102,8 @@ public class TableFilter {
 		filterMenu.add(getFilterCountry());
 		filterMenu.add(getFilterLatitude());
 		filterMenu.add(getFilterLongitude());
-		filterMenu.add(filterSub);
+		filterMenu.add(filterSubmit);
+		filterMenu.add(filterButton);
 		
 		RootPanel.get("temperatureList").add(filterVer);
 

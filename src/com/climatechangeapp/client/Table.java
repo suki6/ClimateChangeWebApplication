@@ -21,7 +21,6 @@ public class Table {
 	 * Initializes the table and displays the content of TemperatureList
 	 */
 	public static void initialize(){		
-		
 
 		
 		List<Temperature> temperatures = new ArrayList<Temperature>(){
