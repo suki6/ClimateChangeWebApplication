@@ -61,9 +61,9 @@ public class TableFilter {
 		filterCity.setSize("58px", "20px");
 		filterCountry.setSize("90px", "20px");
 		filterLatitude.setSize("70px", "20px");
-		filterLongitude.setSize("75px", "20px");
+		filterLongitude.setSize("72px", "20px");
 		
-		filterDate.getElement().setAttribute("placeholder", "Date");
+		filterDate.getElement().setAttribute("placeholder", "   Date");
 		filterAverageTemp.getElement().setAttribute("placeholder", "Average Temperature");
 		filterAverageTempUncertainty.getElement().setAttribute("placeholder", "Average Temperature Uncertainty");
 		filterCity.getElement().setAttribute("placeholder", "City");
