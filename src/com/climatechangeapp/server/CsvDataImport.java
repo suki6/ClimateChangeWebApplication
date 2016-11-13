@@ -10,14 +10,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-
+import com.climatechangeapp.client.Temperature;
+import com.climatechangeapp.client.TemperatureList;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 //import com.google.api.server.spi.IoUtil;
 
 public class CsvDataImport {
 	
-	public static ArrayList<ArrayList<String>> parseDataFromCsvFile()
+	Temperature temp = new Temperature();
+	
+	public ArrayList<ArrayList<String>> parseDataFromCsvFile()
 	{
 	     ArrayList<ArrayList<String>> dataFromFile = new ArrayList<ArrayList<String>>();
 	     try{
@@ -42,9 +45,10 @@ public class CsvDataImport {
 	     {
 	    	 for(String s : row)
 	    	 {
-	    		 System.out.print(s + " | ");
+	    		 temp = new Temperature(s, s, s, s, s, s, s);
 	    	 }
-	    	 System.out.println();
+	    	
+	    	 TemperatureList.addTemperature(temp);
 	     }
 	     return dataFromFile;
 	}
