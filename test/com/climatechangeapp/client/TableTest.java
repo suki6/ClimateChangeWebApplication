@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class TableTest {
 	
-	private int index = 0;
+
 
 	@Test
 	public void test() {

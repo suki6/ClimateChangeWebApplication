@@ -1,9 +1,7 @@
 package com.climatechangeapp.client;
 
 
-import java.io.IOException;
 
-import com.climatechangeapp.server.*;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -17,6 +15,7 @@ public class ClimateChangeApplication implements EntryPoint {
 	
 	
 	private ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
+	private ClimateChangeService CsvDataImport;
 	
 	
 	/**
@@ -43,7 +42,7 @@ public class ClimateChangeApplication implements EntryPoint {
 	    		
 	    
 
-	//	CsvDataImport.parseDataFromCsvFile();
+		CsvDataImport.parseDataFromCsvFile();
 		
 		TableFilter.initFilter();
 		
