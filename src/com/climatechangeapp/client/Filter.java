@@ -4,7 +4,7 @@ package com.climatechangeapp.client;
 public class Filter {
 	//Filter arguments according to the csv file and user stories.
 	//13.11.16 Everything is now a String and same names as everywhere else
-	private String date;
+	private String date= "";
 	private String country="";
 	private String city="";
 	private String averageTemp="";
@@ -36,16 +36,16 @@ public class Filter {
 	}
 
 	
-	public String getdate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setdate(String date) {
+	public void setDate(String date) {
 		this.date = date;
 		
 	}
 	
-	public String filterdate(){
+	public String filterDate(){
 		if(data.getDate().contains(date)){ //Actually works!
 			return data.getDate();}
 		else return "";
