@@ -1,5 +1,6 @@
 package com.climatechangeapp.server;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -55,4 +56,45 @@ public class CsvDataImport {
 	
 
 }
+
+
+
+/**
+
+ * 
+ * 
+ * @author suki
+ *
+ import com.climatechangeapp.client.Temperature;
+import com.climatechangeapp.client.TemperatureList;
+public class CsvDataImport{
+	
+	private TemperatureList tl; 
+	
+	public void dataReader(){										// csv Datei Einlesen, Aussortieren und Durchschnittstemperaturen ausrechnen
+		try {
+	        java.io.BufferedReader FileReader=                      // Reader initailisieren
+	                new java.io.BufferedReader(
+	                    new java.io.FileReader(
+	                        new java.io.File("GlobalLandTemperaturesByMajorCity_v1.csv")				
+	                    )
+	                );
+	       
+	        String zeile="";										//jede Zeile einlesen als kompleter String
+	        FileReader.readLine();									// erste Zeile ignorieren
+	        while(null!=(zeile=FileReader.readLine())){          	
+	            String[] split=zeile.split(",");                	//bei "," String spliten, mit den einzelnen Splits wird Datapoint instanziert
+	         Temperature temperature = new Temperature(split[0], split[1], split[2], split[3], split[4], split[5], split[6]);       
+	      				// Jahreszahl Checken
+	        	tl.addTemperature(temperature); 								// Zur Arrayliste zuf¸gen
+	         
+	        }
+	       
+	    } catch (Exception e) {										// lul keine Ahnung, teil eines kopierten Codes
+	        e.printStackTrace();
+	    }
+	}		
+
+}
+*/
 

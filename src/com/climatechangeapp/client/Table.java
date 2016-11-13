@@ -17,6 +17,8 @@ public class Table {
 	private static FlexTable flexTable = new FlexTable();
 	private static VerticalPanel vp = new VerticalPanel();
 
+	private static TemperatureList tl;
+	
 	/**
 	 * Initializes the table and displays the content of TemperatureList
 	 */
@@ -38,13 +40,14 @@ public class Table {
 			add(new Temperature("01.07.2000", "5°C", "2.3°C", "Berlin", "Germany", "12.34N", "34.25W"));
 			add(new Temperature("01.07.1985", "15°C", "1.3°C", "Johannesburg", "South Africa", "12.34N", "34.25W"));
 			add(new Temperature("01.07.2001", "6°C", "3.2°C", "Moscow", "Russia", "12.34N", "34.25W"));
-			add(new Temperature("01.07.2013", "3°C", "0.3°C", "Paris", "France", "12.34N", "34.25W"));
-			
-			
-		/**	
-			for(int i=0; i<temperatures.size(); i++) {
+ 		/**	add(new Temperature(tl.getTemperature().get(0).getDate(), tl.getTemperature().get(0).getAverageTemp(), tl.getTemperature().get(0).getAverageTempUncertainty(), tl.getTemperature().get(0).getCity(), tl.getTemperature().get(0).getCountry(), tl.getTemperature().get(0).getLatitude(), tl.getTemperature().get(0).getLongitude()));
 				
-				add(new Temperature(temperatures.get(i).getDate(), temperatures.get(i).getAverageTemp(), temperatures.get(i).getAverageTempUncertainty(), temperatures.get(i).getCity(), temperatures.get(i).getCountry(), temperatures.get(i).getLatitude(), temperatures.get(i).getLongitude()));
+			
+			
+		
+			for(int i=0; i<tl.getTemperatureListSize(); i++) {
+				
+				add(new Temperature(tl.getTemperature().get(i).getDate(), tl.getTemperature().get(i).getAverageTemp(), tl.getTemperature().get(i).getAverageTempUncertainty(), tl.getTemperature().get(i).getCity(), tl.getTemperature().get(i).getCountry(), tl.getTemperature().get(i).getLatitude(), tl.getTemperature().get(i).getLongitude()));
 
 			}
 		*/	
