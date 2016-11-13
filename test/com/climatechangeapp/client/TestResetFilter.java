@@ -20,6 +20,7 @@ public class TestResetFilter {
 		assertEquals("",filter.getCountry());
 		assertEquals("",filter.getLatitude());
 		assertEquals("",filter.getLongitude());
+		
 	}
 
 }

@@ -3,7 +3,6 @@ package com.climatechangeapp.client;
 
 public class Filter {
 	//Filter arguments according to the csv file and user stories.
-	//13.11.16 Everything is now a String and same names as everywhere else
 	private String date= "";
 	private String country="";
 	private String city="";
