@@ -1,36 +1,54 @@
 package com.climatechangeapp.client;
 
-//import java.text.SimpleDateFormat;
 
 public class Filter {
-	/*Filter arguments according to the csv file and user stories.
- 	private Date timestamp = new Date;
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); */
-	private String dateInput;
+	//Filter arguments according to the csv file and user stories.
+	//13.11.16 Everything is now a String and same names as everywhere else
+	private String date;
 	private String country="";
 	private String city="";
-	private double averageTemperature=0;
-	private double uncertainity=0;
-	private String Latitude=""; //German: Breitengrad
-	private String Longitude=""; //German: Lï¿½ngengrad
+	private String averageTemp="";
+	private String averageTempUncertainty="";
+	private String latitude=""; //German: Breitengrad
+	private String longitude=""; //German: Längengrad
+	private Temperature data = null; //Calling it data because it doesn't only contain temperatures
 	
+	//Constructor may not be needed
+	public Filter(String date, String averageTemp, String averageTempUncertainty, String city, String country, String latitude, String longitude, Temperature temperature){
+		this.date = date;
+		this.averageTemp = averageTemp;
+		this.averageTempUncertainty = averageTempUncertainty;
+		this.city = city;
+		this.country = country;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.data = temperature;
+	}
+
 	public void resetFilter() {
-		dateInput = "";
-		country = "";
+		date = "";
+		averageTemp = "";
+		averageTempUncertainty = "";
 		city = "";
-		averageTemperature = 0;
-		uncertainity = 0;
-		Latitude="";
-		Longitude="";
+		country = "";
+		latitude="";
+		longitude="";
 	}
 
 	
-	public String getDateInput() {
-		return dateInput;
+	public String getdate() {
+		return date;
 	}
 
-	public void setDateInput(String dateInput) {
-		this.dateInput = dateInput;
+	public void setdate(String date) {
+		this.date = date;
+		
+	}
+	
+	public String filterdate(){
+		if(data.getDate().contains(date)){ //Actually works!
+			return data.getDate();}
+		else return "";
 	}
 
 	public String getCountry() {
@@ -40,6 +58,12 @@ public class Filter {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	public String filterCountry(){
+		if(data.getCountry().contains(country)){
+			return data.getCountry();}
+		else return "";
+	}
 
 	public String getCity() {
 		return city;
@@ -48,39 +72,74 @@ public class Filter {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-	public double getAverageTemperature() {
-		return averageTemperature;
+	
+	public String filterCity(){
+		if(data.getCity().contains(city)){
+			return data.getCity();}
+		else return "";
 	}
 
-	public void setAverageTemperature(double averageTemperature) {
-		this.averageTemperature = averageTemperature;
+	public String getAverageTemp() {
+		return averageTemp;
 	}
 
-	public double getUncertainity() {
-		return uncertainity;
+	public void setAverageTemp(String averageTemp) {
+		this.averageTemp = averageTemp;
+	}
+	
+	public String filterAverageTemp(){
+		if(data.getAverageTemp().contains(averageTemp)){
+			return data.getAverageTemp();}
+		else return "";
 	}
 
-	public void setUncertainity(double uncertainity) {
-		this.uncertainity = uncertainity;
+	public String getAverageTempUncertainty() {
+		return averageTempUncertainty;
+	}
+
+	public void setAverageTempUncertainty(String averageTempUncertainty) {
+		this.averageTempUncertainty = averageTempUncertainty;
+	}
+	
+	public String filterAverageTempUncertainty(){
+		if(data.getAverageTemp().contains(averageTempUncertainty)){
+			return data.getAverageTempUncertainty();}
+		else return "";
 	}
 
 	public String getLatitude() {
-		return Latitude;
+		return latitude;
 	}
 
 	public void setLatitude(String latitude) {
-		Latitude = latitude;
+		this.latitude = latitude;
+	}
+	
+	public String filterLatitude(){
+		if(data.getLatitude().contains(latitude)){
+			return data.getLatitude();}
+		else return "";
 	}
 
 	public String getLongitude() {
-		return Longitude;
+		return longitude;
 	}
 
 	public void setLongitude(String longitude) {
-		Longitude = longitude;
+		this.longitude = longitude;
 	}
 	
+	public String filterLongitude(){
+		if(data.getLongitude().contains(longitude)){
+			return data.getLongitude();}
+		else return "";
+	}
 	
-	
+	/* Used this for testing
+	public static void main(String[] args) {
+		Temperature temperatures = new Temperature("20.07.2016", "12°C.", "5°C", "NewYork", "USA", "12.34N", "34.25W");
+		Filter filter = new Filter("20.07.2016", "12°C.", "5°C", "Manhattan", "USA", "12.34N", "34.25W", temperatures);
+		System.out.println(filter.filterCountry());
+		System.out.println(filter.filterCity());
+	} */
 }
