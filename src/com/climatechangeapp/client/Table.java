@@ -28,7 +28,19 @@ public class Table {
 			private static final long serialVersionUID = 1L;
 	
 			{	
-			add(new Temperature("01.07.1980", "23°C", "3°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+			add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+			add(new Temperature("01.09.2014", "12°C", "2°C", "TEST", "Switzerland", "12.34N", "34.25W"));
+			add(new Temperature("01.06.1989", "3°C", "1.4°C", "TEST2", "Switzerland", "12.34N", "34.25W"));
+			add(new Temperature("01.07.2010", "43°C", "1°C", "NewYork", "USA", "12.34N", "34.25W"));
+			add(new Temperature("01.07.1994", "1°C", ".3°C", "Sydney", "Australia", "12.34N", "34.25W"));
+			add(new Temperature("01.07.2013", "12°C", "0.3°C", "Tokyo", "Japan", "12.34N", "34.25W"));
+			add(new Temperature("01.07.2002", "14°C", "1.3°C", "Rio", "Brazil", "12.34N", "34.25W"));
+			add(new Temperature("01.07.2000", "5°C", "2.3°C", "Berlin", "Germany", "12.34N", "34.25W"));
+			add(new Temperature("01.07.1985", "15°C", "1.3°C", "Johannesburg", "South Africa", "12.34N", "34.25W"));
+			add(new Temperature("01.07.2001", "6°C", "3.2°C", "Moscow", "Russia", "12.34N", "34.25W"));
+			add(new Temperature("01.07.2013", "3°C", "0.3°C", "Paris", "France", "12.34N", "34.25W"));
+			
+			
 		/**	
 			for(int i=0; i<temperatures.size(); i++) {
 				

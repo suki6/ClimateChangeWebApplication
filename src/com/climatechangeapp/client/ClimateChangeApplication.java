@@ -43,7 +43,7 @@ public class ClimateChangeApplication implements EntryPoint {
 	    		
 	    
 
-//		CsvDataImport.parseDataFromCsvFile();
+	//	CsvDataImport.parseDataFromCsvFile();
 		
 		TableFilter.initFilter();
 		
