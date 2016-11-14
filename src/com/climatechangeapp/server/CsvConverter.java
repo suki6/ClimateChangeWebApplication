@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 import com.climatechangeapp.client.Temperature;
 import com.climatechangeapp.client.TemperatureList;
-
+/**
+ * 
+ * @author suki
+ *
+ */
 public class CsvConverter {
 
-	public static Temperature convertLine(String line) {
+	public static void convertLine(String line) {
 		// TODO Auto-generated method stub
 		String[] row = line.split(",");
 		
@@ -22,9 +26,7 @@ public class CsvConverter {
 		Temperature temp = new Temperature(date, averageTemp, averageTempUncertainty, city, country, latitude, longitude);
 		TemperatureList.addTemperature(temp);
 		
-		
-		
-		return temp;
+	
 	}
 
 }

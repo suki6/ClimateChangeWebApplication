@@ -19,29 +19,26 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class CsvDataImport {
 	
-	Temperature temp = new Temperature();
-	
-	public ArrayList<ArrayList<String>> parseDataFromCsvFile()
+	public static void parseDataFromCsvFile()
 	{
-	     ArrayList<ArrayList<String>> dataFromFile = new ArrayList<ArrayList<String>>();
+	     //ArrayList<ArrayList<String>> dataFromFile = new ArrayList<ArrayList<String>>();
 	     try{
-	    	 // scans csv file and breaks into different token, between "," 
-	         Scanner scanner=new Scanner(new FileReader("/Users/suki/Documents/UZH/Wirtschaftsinformatik/Bachelorstufe/HS2016/Subjects/Major/Informatics/Software Engineering/Excercises/Übung 4/ClimateChangeApplication/src/com/climatechangeapp/server/GlobalLandTemperaturesByMajorCity_v1.csv"));
-	         //scanner.useDelimiter(",");
-	         
-	         //token converted in String
-	         //String line split between "," and saved in array list
+	    	 Scanner scanner=new Scanner(new FileReader("/Users/Nithi/Desktop/Software Engineering/GlobalLandTemperaturesByMajorCity_v1.csv"));
+	    	 
+	    	 
 	         while(scanner.hasNextLine())
 	         {
 	            String dataInRow=scanner.nextLine();
-	            String []dataInRowArray=dataInRow.split(",");
-	            ArrayList<String> rowDataFromFile=new ArrayList<String>(Arrays.asList(dataInRowArray));
-	            dataFromFile.add(rowDataFromFile);
+	            //String []dataInRowArray=dataInRow.split(",");
+	            CsvConverter.convertLine(dataInRow);
+	            //ArrayList<String> rowDataFromFile=new ArrayList<String>(Arrays.asList(dataInRowArray));
+	            //dataFromFile.add(rowDataFromFile);
 	         }
 	         scanner.close();
 	     }catch (FileNotFoundException e){
 	        e.printStackTrace();
 	     }
+	     /*
 	     for(ArrayList<String> row : dataFromFile)
 	     {
 	    	 for(String s : row)
@@ -51,50 +48,6 @@ public class CsvDataImport {
 	    	
 	    	 TemperatureList.addTemperature(temp);
 	     }
-	     return dataFromFile;
+	     */
 	}
-	
-
 }
-
-
-
-/**
- Alternative Import
- * 
- * 
- * @author suki
- *
- import com.climatechangeapp.client.Temperature;
-import com.climatechangeapp.client.TemperatureList;
-public class CsvDataImport{
-	
-	private TemperatureList tl; 
-	
-	public void dataReader(){										// csv Datei Einlesen, Aussortieren und Durchschnittstemperaturen ausrechnen
-		try {
-	        java.io.BufferedReader FileReader=                      // Reader initailisieren
-	                new java.io.BufferedReader(
-	                    new java.io.FileReader(
-	                        new java.io.File("GlobalLandTemperaturesByMajorCity_v1.csv")				
-	                    )
-	                );
-	       
-	        String zeile="";										//jede Zeile einlesen als kompleter String
-	        FileReader.readLine();									// erste Zeile ignorieren
-	        while(null!=(zeile=FileReader.readLine())){          	
-	            String[] split=zeile.split(",");                	//bei "," String spliten, mit den einzelnen Splits wird Datapoint instanziert
-	         Temperature temperature = new Temperature(split[0], split[1], split[2], split[3], split[4], split[5], split[6]);       
-	      				// Jahreszahl Checken
-	        	tl.addTemperature(temperature); 								// Zur Arrayliste zuf¸gen
-	         
-	        }
-	       
-	    } catch (Exception e) {										// lul keine Ahnung, teil eines kopierten Codes
-	        e.printStackTrace();
-	    }
-	}		
-
-}
-*/
-
