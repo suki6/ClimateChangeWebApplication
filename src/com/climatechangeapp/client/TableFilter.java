@@ -78,7 +78,8 @@ public class TableFilter {
 
 		filterButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				filterPop.show();				
+				filterPop.show();	
+				filterSubmittedValues(); //Should filter the values on click
 				// oracleYear.add("aaaaaa");
 			}
 		});
@@ -116,7 +117,7 @@ public class TableFilter {
 	}
 	
 
-	public TemperatureList filterSubmittedValues(){
+	public static TemperatureList filterSubmittedValues() {
 		TemperatureList returnedTemperatures = new TemperatureList();
 		for (int i=0;i<temperature.size();i++){
 			filter.setTemperature(temperature.get(i));
