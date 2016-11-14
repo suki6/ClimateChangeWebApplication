@@ -43,6 +43,11 @@ public class TableFilter {
 	private static SuggestBox filterCountry = new SuggestBox(oracleCountry);
 	private static SuggestBox filterLatitude = new SuggestBox(oracleLatitude);
 	private static SuggestBox filterLongitude = new SuggestBox(oracleLongitude);
+	
+	private static TemperatureList temperatureList = new TemperatureList();
+	private static ArrayList<Temperature> temperature = temperatureList.getTemperature();
+	// private static ArrayList<String> input = new ArrayList<String>();
+	private static Filter filter = new Filter();
 
 	public static void initFilter() {
 
@@ -73,22 +78,23 @@ public class TableFilter {
 
 		filterButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				filterPop.show();
+				filterPop.show();				
 				// oracleYear.add("aaaaaa");
 			}
 		});
 		
+		
 		filterSubmit.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				ArrayList<String> input = new ArrayList<String>();
-				input.clear();
-				input.add(getFilterDate().getText());
-				input.add(getFilterAverageTemp().getText());
-				input.add(getFilterAverageTempUncertainty().getText());
-				input.add(getFilterCity().getText());
-				input.add(getFilterCountry().getText());
-				input.add(getFilterLatitude().getText());
-				input.add(getFilterLongitude().getText());
+				
+				filter.resetFilter();
+				filter.setDate(getFilterDate().getText());
+				filter.setAverageTemp(getFilterAverageTemp().getText());
+				filter.setAverageTempUncertainty(getFilterAverageTempUncertainty().getText());
+				filter.setCity(getFilterCity().getText());
+				filter.setCountry(getFilterCountry().getText());
+				filter.setLatitude(getFilterLatitude().getText());
+				filter.setLongitude(getFilterLongitude().getText());
 				
 				
 			}
@@ -109,6 +115,17 @@ public class TableFilter {
 
 	}
 	
+
+	public TemperatureList filterSubmittedValues(){
+		TemperatureList returnedTemperatures = new TemperatureList();
+		for (int i=0;i<temperature.size();i++){
+			filter.setTemperature(temperature.get(i));
+			if (filter.filterDate() != null || filter.filterCity() != null || filter.filterCountry() != null || filter.filterAverageTemp() != null || filter.filterAverageTempUncertainty() != null || filter.filterLatitude() != null || filter.filterLongitude() != null){
+					returnedTemperatures.addTemperature(temperature.get(i)); }
+			
+		}
+		return returnedTemperatures;
+	}
 
 	public static SuggestBox getFilterDate() {
 		return filterDate;
