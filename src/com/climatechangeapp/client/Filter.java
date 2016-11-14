@@ -47,7 +47,14 @@ public class Filter {
 		latitude="";
 		longitude="";
 	}
-
+	
+	public void setTemperature (Temperature temp){
+		data = temp;
+	}
+	
+	public Temperature getTemperature (){
+		return data;
+	}
 	
 	public String getDate() {
 		return date;
@@ -131,7 +138,7 @@ public class Filter {
 	}
 	
 	/**
-	 * Checks if averageTempUncertainity in Temperature Object contains the input of the Filter
+	 * Checks if averageTempUncertainty in Temperature Object contains the input of the Filter
 	 * @return Temperature or NULL 
 	 */
 	public Temperature filterAverageTempUncertainty(){
