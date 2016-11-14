@@ -1,5 +1,10 @@
 package com.climatechangeapp.client;
 
+/**
+ * This class provides the filter methods
+ * @author Daniel Klaus
+ *
+ */
 
 public class Filter {
 	//Filter arguments according to the csv file and user stories.
@@ -12,7 +17,7 @@ public class Filter {
 	private String longitude=""; //German: Längengrad
 	private Temperature data = null; //Calling it data because it doesn't only contain temperatures
 	
-	//Constructor may not be needed
+	//Constructor with all variables for convenient testing
 	public Filter(String date, String averageTemp, String averageTempUncertainty, String city, String country, String latitude, String longitude, Temperature temperature){
 		this.date = date;
 		this.averageTemp = averageTemp;
@@ -23,7 +28,16 @@ public class Filter {
 		this.longitude = longitude;
 		this.data = temperature;
 	}
-
+	
+	//Constructor for no variables
+	public Filter(){}
+	
+	//Constructor with only data provided
+	public Filter(Temperature temperature) {
+		data = temperature;
+		
+	}
+	
 	public void resetFilter() {
 		date = "";
 		averageTemp = "";
@@ -44,10 +58,14 @@ public class Filter {
 		
 	}
 	
-	public String filterDate(){
+	/**
+	 * Checks if date in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterDate(){
 		if(data.getDate().contains(date)){ //Actually works!
-			return data.getDate();}
-		else return "";
+			return data;}
+		else return null;
 	}
 
 	public String getCountry() {
@@ -58,10 +76,14 @@ public class Filter {
 		this.country = country;
 	}
 	
-	public String filterCountry(){
+	/**
+	 * Checks if country in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterCountry(){
 		if(data.getCountry().contains(country)){
-			return data.getCountry();}
-		else return "";
+			return data;}
+		else return null;
 	}
 
 	public String getCity() {
@@ -72,10 +94,14 @@ public class Filter {
 		this.city = city;
 	}
 	
-	public String filterCity(){
+	/**
+	 * Checks if city in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterCity(){
 		if(data.getCity().contains(city)){
-			return data.getCity();}
-		else return "";
+			return data;}
+		else return null;
 	}
 
 	public String getAverageTemp() {
@@ -86,10 +112,14 @@ public class Filter {
 		this.averageTemp = averageTemp;
 	}
 	
-	public String filterAverageTemp(){
+	/**
+	 * Checks if averageTemp in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterAverageTemp(){
 		if(data.getAverageTemp().contains(averageTemp)){
-			return data.getAverageTemp();}
-		else return "";
+			return data;}
+		else return null;
 	}
 
 	public String getAverageTempUncertainty() {
@@ -100,10 +130,14 @@ public class Filter {
 		this.averageTempUncertainty = averageTempUncertainty;
 	}
 	
-	public String filterAverageTempUncertainty(){
+	/**
+	 * Checks if averageTempUncertainity in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterAverageTempUncertainty(){
 		if(data.getAverageTempUncertainty().contains(averageTempUncertainty)){
-			return data.getAverageTempUncertainty();}
-		else return "";
+			return data;}
+		else return null;
 	}
 
 	public String getLatitude() {
@@ -114,10 +148,14 @@ public class Filter {
 		this.latitude = latitude;
 	}
 	
-	public String filterLatitude(){
+	/**
+	 * Checks if latitude in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterLatitude(){
 		if(data.getLatitude().contains(latitude)){
-			return data.getLatitude();}
-		else return "";
+			return data;}
+		else return null;
 	}
 
 	public String getLongitude() {
@@ -128,17 +166,14 @@ public class Filter {
 		this.longitude = longitude;
 	}
 	
-	public String filterLongitude(){
+	/**
+	 * Checks if longitude in Temperature Object contains the input of the Filter
+	 * @return Temperature or NULL 
+	 */
+	public Temperature filterLongitude(){
 		if(data.getLongitude().contains(longitude)){
-			return data.getLongitude();}
-		else return "";
+			return data;}
+		else return null;
 	}
 	
-	/* Used this for testing
-	public static void main(String[] args) {
-		Temperature temperatures = new Temperature("20.07.2016", "12°C.", "5°C", "NewYork", "USA", "12.34N", "34.25W");
-		Filter filter = new Filter("20.07.2016", "12°C.", "5°C", "Manhattan", "USA", "12.34N", "34.25W", temperatures);
-		System.out.println(filter.filterCountry());
-		System.out.println(filter.filterCity());
-	} */
 }
