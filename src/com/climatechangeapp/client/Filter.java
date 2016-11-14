@@ -101,7 +101,7 @@ public class Filter {
 	}
 	
 	public String filterAverageTempUncertainty(){
-		if(data.getAverageTemp().contains(averageTempUncertainty)){
+		if(data.getAverageTempUncertainty().contains(averageTempUncertainty)){
 			return data.getAverageTempUncertainty();}
 		else return "";
 	}
