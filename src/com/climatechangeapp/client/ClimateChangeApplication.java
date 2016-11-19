@@ -39,7 +39,7 @@ public class ClimateChangeApplication implements EntryPoint {
 		
 		Table.initialize();
 		
-		
+		TableStringFilter tbs = new TableStringFilter();
 
 		
 	}

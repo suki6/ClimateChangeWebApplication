@@ -1,3 +1,2 @@
 # Module climatechangeapplication
 # RPC service class, partial path of RPC policy file
-com.climatechangeapp.client.ClimateChangeService, 8BDA6D0B490F6C0CAFEF4C09E14DF5A0.gwt.rpc
