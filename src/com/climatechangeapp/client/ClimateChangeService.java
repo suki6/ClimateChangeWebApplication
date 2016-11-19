@@ -1,10 +1,11 @@
 package com.climatechangeapp.client;
 
-import java.util.ArrayList;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
+@RemoteServiceRelativePath("tempData")
 public interface ClimateChangeService extends RemoteService {
-	ArrayList<ArrayList<String>> parseDataFromCsvFile();
+	TemperatureList getTemperature();
+	void dataReader();
 }

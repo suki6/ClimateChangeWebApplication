@@ -23,7 +23,7 @@ public class CsvDataImport {
 	{
 	     //ArrayList<ArrayList<String>> dataFromFile = new ArrayList<ArrayList<String>>();
 	     try{
-	    	 Scanner scanner=new Scanner(new FileReader("/Users/Nithi/Desktop/Software Engineering/GlobalLandTemperaturesByMajorCity_v1.csv"));
+	    	 Scanner scanner = new Scanner(new FileReader("/Users/suki/git/ClimateChangeWebApplication/war/GlobalLandTemperaturesByMajorCity_v1.csv"));
 	    	 
 	    	 
 	         while(scanner.hasNextLine())

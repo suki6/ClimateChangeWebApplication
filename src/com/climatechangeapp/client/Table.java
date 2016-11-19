@@ -25,6 +25,7 @@ public class Table {
 	public static void initialize(){		
 
 		
+		
 		List<Temperature> temperatures = new ArrayList<Temperature>(){
 
 			private static final long serialVersionUID = 1L;
@@ -40,11 +41,11 @@ public class Table {
 			add(new Temperature("01.07.2000", "5°C", "2.3°C", "Berlin", "Germany", "12.34N", "34.25W"));
 			add(new Temperature("01.07.1985", "15°C", "1.3°C", "Johannesburg", "South Africa", "12.34N", "34.25W"));
 			add(new Temperature("01.07.2001", "6°C", "3.2°C", "Moscow", "Russia", "12.34N", "34.25W"));
- 		/**	add(new Temperature(tl.getTemperature().get(0).getDate(), tl.getTemperature().get(0).getAverageTemp(), tl.getTemperature().get(0).getAverageTempUncertainty(), tl.getTemperature().get(0).getCity(), tl.getTemperature().get(0).getCountry(), tl.getTemperature().get(0).getLatitude(), tl.getTemperature().get(0).getLongitude()));
+ 	//		add(new Temperature(tl.get(0).getDate(), tl.get(0).getAverageTemp(), tl.get(0).getAverageTempUncertainty(), tl.get(0).getCity(), tl.get(0).getCountry(), tl.get(0).getLatitude(), tl.get(0).getLongitude()));
 				
 			
 			
-		
+		/**
 			for(int i=0; i<tl.getTemperatureListSize(); i++) {
 				
 				add(new Temperature(tl.getTemperature().get(i).getDate(), tl.getTemperature().get(i).getAverageTemp(), tl.getTemperature().get(i).getAverageTempUncertainty(), tl.getTemperature().get(i).getCity(), tl.getTemperature().get(i).getCountry(), tl.getTemperature().get(i).getLatitude(), tl.getTemperature().get(i).getLongitude()));

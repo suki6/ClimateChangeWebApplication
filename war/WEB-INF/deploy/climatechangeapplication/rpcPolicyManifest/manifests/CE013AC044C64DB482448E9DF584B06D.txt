@@ -1,0 +1,2 @@
+serviceClass: com.climatechangeapp.client.ClimateChangeService
+path: 8BDA6D0B490F6C0CAFEF4C09E14DF5A0.gwt.rpc

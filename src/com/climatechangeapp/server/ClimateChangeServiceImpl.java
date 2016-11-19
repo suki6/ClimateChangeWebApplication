@@ -1,12 +1,8 @@
 package com.climatechangeapp.server;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-
 import com.climatechangeapp.client.ClimateChangeService;
+import com.climatechangeapp.client.Temperature;
+import com.climatechangeapp.client.TemperatureList;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class ClimateChangeServiceImpl extends RemoteServiceServlet implements ClimateChangeService {
@@ -15,36 +11,44 @@ public class ClimateChangeServiceImpl extends RemoteServiceServlet implements Cl
 	 * 
 	 */
 	private static final long serialVersionUID = 1710368063913021854L;
+	private java.io.BufferedReader fileReader;
 
-	public ArrayList<ArrayList<String>> parseDataFromCsvFile(){
-	     ArrayList<ArrayList<String>> dataFromFile = new ArrayList<ArrayList<String>>();
-	     try{
-	    	 // scans csv file and breaks into different token, between "," 
-	         Scanner scanner=new Scanner(new FileReader("/Users/suki/Documents/UZH/Wirtschaftsinformatik/Bachelorstufe/HS2016/Subjects/Major/Informatics/Software Engineering/Excercises/Übung 4/ClimateChangeApplication/src/com/climatechangeapp/server/GlobalLandTemperaturesByMajorCity_v1.csv"));
-	         //scanner.useDelimiter(",");
-	         
-	         //token converted in String
-	         //String line split between "," and saved in array list
-	         while(scanner.hasNextLine()) {
-	            String dataInRow=scanner.nextLine();
-	            String []dataInRowArray=dataInRow.split(",");
-	            ArrayList<String> rowDataFromFile=new ArrayList<String>(Arrays.asList(dataInRowArray));
-	            dataFromFile.add(rowDataFromFile);
-	         }
-	         scanner.close();
-	     }
-	     catch (FileNotFoundException e){
-	        e.printStackTrace();
-	     }
+		public void dataReader(){
+			try {
+				fileReader = new java.io.BufferedReader(new java.io.FileReader(new java.io.File("GlobalLandTemperaturesByMajorCity_v1.csv")));
+			
+				String row = "";
+				fileReader.readLine();
+				while(null!=(row=fileReader.readLine())){
+					String[] split = row.split(",");
+					System.out.println("split[i]");
+					Temperature temperature = new Temperature(split[0], split[1], split[2], split [3], split[4], split[5], split[6]);
+				
+					TemperatureList.addTemperature(temperature);
+					
+					
+					
+				//	temperature1.addTemperature(temperature);
+				
+					//			if(this.isDataRelevant(temperatures)) {
+						
+		//			}
+				}
+			}
+			
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		//	this.dataConcentrate();
+		
 	     
-	     for(ArrayList<String> row : dataFromFile)
-	     {
-	    	 for(String s : row){
-	    		 System.out.print(s + " | ");
-	    	 }
-	    	 System.out.println();
-	     }
-	     return dataFromFile;
 	}
+
+	public TemperatureList getTemperature() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

@@ -50,5 +50,10 @@ public class TemperatureList implements Serializable {
 	public int getTemperatureListSize() {
 		return temperature.size();
 	}
+
+
+	public  Temperature get(int i) {
+		return temperature.get(i);
+	}
 	
 }

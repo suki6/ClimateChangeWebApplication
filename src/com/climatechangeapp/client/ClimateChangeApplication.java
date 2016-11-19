@@ -3,9 +3,10 @@ package com.climatechangeapp.client;
 
 
 import com.google.gwt.core.client.EntryPoint;
+/**
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-
+*/
 	
 
 /**
@@ -13,40 +14,30 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 public class ClimateChangeApplication implements EntryPoint {
 	
-	
+/**	
 	private ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
-	private ClimateChangeService CsvDataImport;
-	
+*/
 	
 	/**
 	 * This is the entry point method
 	 */
+
 	public void onModuleLoad() {
+
+
+
+//	    TemperatureList tempL;
+//		AsyncCallback<Void> callback = null;
+//		climateChangeSvc.dataReader(callback);
+
+
+
+		WorldMap map = new WorldMap();
 		
-		if (climateChangeSvc == null) {
-			climateChangeSvc = GWT.create(ClimateChangeService.class);
-		    }
-
-	     // Set up the callback object.
-	    AsyncCallback<TemperatureList[]> callback = new AsyncCallback<TemperatureList[]>() {
-	      public void onFailure(Throwable caught) {
-	        // TODO: Do something with errors.
-	      }
-
-		@Override
-		public void onSuccess(TemperatureList[] result) {
-			// TODO Auto-generated method stub
-			
-		}	
-	    };      
-
-	//	CsvDataImport.parseDataFromCsvFile();
 	    
-	    TableFilter.initFilter();	    
+    	TableFilter.initFilter();	    
 		
 		Table.initialize();
-		
-
 		
 		
 
