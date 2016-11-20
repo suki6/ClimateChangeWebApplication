@@ -4,7 +4,6 @@ package com.climatechangeapp.client;
 
 import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsonUtils;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;

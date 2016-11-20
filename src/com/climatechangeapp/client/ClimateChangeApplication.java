@@ -42,7 +42,7 @@ public class ClimateChangeApplication implements EntryPoint {
 		
 		TableStringFilter tbs = new TableStringFilter();
 
-		
+		TimeLineRangeFilter tlrf = new TimeLineRangeFilter();
 	}
 		 
 		
