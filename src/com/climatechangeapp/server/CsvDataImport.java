@@ -25,7 +25,7 @@ public class CsvDataImport {
 	     try{
 	    	 Scanner scanner = new Scanner(new FileReader("/Users/suki/git/ClimateChangeWebApplication/war/GlobalLandTemperaturesByMajorCity_v1.csv"));
 	    	 
-	    	 //test commit and push
+	    	 //test 
 	    	 
 	         while(scanner.hasNextLine())
 	         {
