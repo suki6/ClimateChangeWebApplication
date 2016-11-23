@@ -88,6 +88,6 @@ public class WorldMap {
 		// Draw the chart
 		geoChart.draw(dataTable, options);
 		
-		RootPanel.get().add(vp);
+		RootPanel.get("worldMap").add(vp);
 	}
 }

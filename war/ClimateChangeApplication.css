@@ -20,6 +20,7 @@ ul.footer {
 	position: relative;
 	float: left;
 	left: 10px;
+	z-index: 100;
 }
 
 li.footer {
@@ -39,7 +40,54 @@ a.footer:hover {
 	color: white;
 	text-decoration: none;
 }
+/* Navigation; similar to footer */
+nav {
+	background-color: #505050;
+	display:inline-block;
+	position: fixed;
+	opacity: 0.75;
+	top: 0px;
+	left: 0px;
+	width:100%;
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: 1.2em;				/*recommanded for mobile devices*/
+	/* height: 48px;*/
+}
 
+ul.navigation {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	float: left;
+	left: 49%;
+	z-index: 100;
+}
+
+li.navigation {
+	float: left;
+	width: 220px;
+	position: relative;
+	float: left;
+	right: 50%;;
+}
+
+a.navigation:link, a.navigation:visited {
+	text-align: center;
+	display: block;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	padding: 15px;
+	font-family: sans-serif;
+	/*font-size: 1em;*/
+}
+
+a.navigation:hover, a.navigation:active {
+	color: #00ff00;
+	text-decoration: none;
+}
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
