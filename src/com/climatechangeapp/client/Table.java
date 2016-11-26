@@ -115,7 +115,7 @@ public class Table {
 		cellTableOfTemperature.addColumn(longitude, "Breitengrad");
 		
 		date.setSortable(true);
-		SortHandler;
+	//	SortHandler;
 		averageTemp.setSortable(true);
 		averageTempUncertainty.setSortable(true);
 		city.setSortable(true);
