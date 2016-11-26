@@ -8,5 +8,8 @@ public interface ClimateChangeServiceAsync {
 	
 	void getTemperature(AsyncCallback<TemperatureList> callback);
 
+	void addTemperatrue(Temperature addedTemperature, AsyncCallback<Void> callback);
+
+
 
 }

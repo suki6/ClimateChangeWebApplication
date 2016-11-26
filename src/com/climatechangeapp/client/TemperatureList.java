@@ -25,7 +25,7 @@ public class TemperatureList implements Serializable {
 	 * Adds a new Temperature to the TemperatureList
 	 * @param addedTemperature The Temperature which will be added to the TemperatureList
 	 */
-	public static void addTemperature(Temperature addedTemperature){
+	public void addTemperature(Temperature addedTemperature){
 		temperature.add(addedTemperature);
 	}
 	

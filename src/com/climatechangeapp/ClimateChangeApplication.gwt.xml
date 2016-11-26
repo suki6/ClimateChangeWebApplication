@@ -9,6 +9,8 @@
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.googlecode.gwt.charts.Charts'/>
   <inherits name='com.google.gwt.user.User'/>
+  <inherits name='com.google.gwt.visualization.Visualization' />
+ <!--   <inherits name='com.chap.links.Timeline'/>  -->
 
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->

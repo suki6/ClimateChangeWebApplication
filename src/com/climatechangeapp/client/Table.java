@@ -10,6 +10,7 @@ import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.visualization.client.events.SortHandler;
 
 
 public class Table {
@@ -112,6 +113,15 @@ public class Table {
 			}
 		};
 		cellTableOfTemperature.addColumn(longitude, "Breitengrad");
+		
+		date.setSortable(true);
+		SortHandler;
+		averageTemp.setSortable(true);
+		averageTempUncertainty.setSortable(true);
+		city.setSortable(true);
+		country.setSortable(true);
+		latitude.setSortable(true);
+		longitude.setSortable(true);
 		
 		vp.setBorderWidth(1);
 		vp.add(flexTable);

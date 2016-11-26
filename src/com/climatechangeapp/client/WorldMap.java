@@ -84,7 +84,8 @@ public class WorldMap {
 		options.setColorAxis(geoChartColorAxis);
 		options.setBackgroundColor("blue");
 		options.setDatalessRegionColor("gray");
-
+		options.setHeight(600);
+		options.setWidth(1260);
 		// Draw the chart
 		geoChart.draw(dataTable, options);
 		
