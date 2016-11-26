@@ -23,10 +23,8 @@ public class ClimateChangeServiceImpl extends RemoteServiceServlet implements Cl
 					String[] split = row.split(",");
 					System.out.println("split[i]");
 					Temperature temperature = new Temperature(split[0], split[1], split[2], split [3], split[4], split[5], split[6]);
-					
-					TemperatureList tl = new TemperatureList();
-					
-					tl.addTemperature(temperature);
+				
+					TemperatureList.addTemperature(temperature);
 					
 					
 					
@@ -50,14 +48,6 @@ public class ClimateChangeServiceImpl extends RemoteServiceServlet implements Cl
 	public TemperatureList getTemperature() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void addTemperatrue(Temperature addedTemperature) {
-		
-		TemperatureList tl = new TemperatureList();
-		Temperature temperature = new Temperature("zürich", "2", "3", "sf", "3", "rt", "43e");
-		tl.addTemperature(temperature);
 	}
 
 	

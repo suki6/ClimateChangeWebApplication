@@ -3,9 +3,10 @@ package com.climatechangeapp.client;
 
 
 import com.google.gwt.core.client.EntryPoint;
-
+/**
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+*/
 	
 
 /**
@@ -13,9 +14,9 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 public class ClimateChangeApplication implements EntryPoint {
 	
-	
-//	private ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
-
+/**	
+	private ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
+*/
 	
 	/**
 	 * This is the entry point method
@@ -25,7 +26,7 @@ public class ClimateChangeApplication implements EntryPoint {
 
 
 
-//    TemperatureList tempL;
+//	    TemperatureList tempL;
 //		AsyncCallback<Void> callback = null;
 //		climateChangeSvc.dataReader(callback);
 
@@ -33,11 +34,11 @@ public class ClimateChangeApplication implements EntryPoint {
 
 		WorldMap map = new WorldMap();
 		
-//	    TableVisualization tv = new TableVisualization();
+	    TableVisualization tv = new TableVisualization();
 		
     	TableFilter.initFilter();	    
 		
-		Table.initialize();
+	//	Table.initialize();
 		
 		TableStringFilter tbs = new TableStringFilter();
 

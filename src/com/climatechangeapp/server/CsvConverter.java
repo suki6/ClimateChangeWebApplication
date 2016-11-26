@@ -24,8 +24,7 @@ public class CsvConverter {
 		String longitude = row[6];
 		 		
 		Temperature temp = new Temperature(date, averageTemp, averageTempUncertainty, city, country, latitude, longitude);
-		TemperatureList tl = new TemperatureList();
-		tl.addTemperature(temp);
+		TemperatureList.addTemperature(temp);
 		
 	
 	}

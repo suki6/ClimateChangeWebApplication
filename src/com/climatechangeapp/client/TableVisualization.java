@@ -14,8 +14,6 @@ import com.googlecode.gwt.charts.client.table.Table;
 import com.googlecode.gwt.charts.client.table.TableOptions;
 
 public class TableVisualization {
-	private TemperatureList tl;
-	
 	private Table table;
 	
 	private HorizontalPanel hp = new HorizontalPanel();
@@ -43,24 +41,22 @@ public class TableVisualization {
 
 		// Prepare the data
 		DataTable dataTable = DataTable.create();
-		
-		dataTable.addColumn(ColumnType.STRING, "Datum");
-		dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperatur");
-		dataTable.addColumn(ColumnType.STRING, "Temperaturunsicherheit");
-		dataTable.addColumn(ColumnType.STRING, "Stadt");
-		dataTable.addColumn(ColumnType.STRING, "Land");
-		dataTable.addColumn(ColumnType.STRING, "Längengrad");
-		dataTable.addColumn(ColumnType.STRING, "Breitengrad");
-		
-//		dataTable.addColumn(ColumnType.NUMBER, "Temperature");
-	//	dataTable.addColumn(ColumnType.BOOLEAN, "Higher than last year");
-		dataTable.addRows(1);
-		dataTable.setCell(0, 0, "01.01.2013");
-
-		
-	//	dataTable.setCell(0, 0, tl.get(0).getDate());
-	//	dataTable.setCell(0, 1, tl.get(0).getAverageTemp());
-	//	dataTable.setCell(0, 2, "test");
+		dataTable.addColumn(ColumnType.STRING, "City");
+		dataTable.addColumn(ColumnType.NUMBER, "Temperature");
+		dataTable.addColumn(ColumnType.BOOLEAN, "Higher than last year");
+		dataTable.addRows(4);
+		dataTable.setCell(0, 0, "Mike");
+		dataTable.setCell(0, 1, 10000, "$10,000");
+		dataTable.setCell(0, 2, true);
+		dataTable.setCell(1, 0, "Jim");
+		dataTable.setCell(1, 1, 8000, "$8,000");
+		dataTable.setCell(1, 2, false);
+		dataTable.setCell(2, 0, "Alice");
+		dataTable.setCell(2, 1, 12500, "$12,500");
+		dataTable.setCell(2, 2, true);
+		dataTable.setCell(3, 0, "Bob");
+		dataTable.setCell(3, 1, 7000, "$7,000");
+		dataTable.setCell(3, 2, true);
 
 		// Set options
 		TableOptions options = TableOptions.create();
