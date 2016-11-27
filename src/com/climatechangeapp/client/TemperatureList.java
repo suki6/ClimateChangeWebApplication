@@ -12,12 +12,12 @@ import java.util.ArrayList;
  */
 public class TemperatureList implements Serializable {
 
-	private static final long serialVersionUID = -5258406909930280750L;
-	private static ArrayList<Temperature> temperature = new ArrayList<Temperature>();
+	
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Temperature> temperature = new ArrayList<Temperature>();
 
 
 	public TemperatureList() {
-		temperature = new ArrayList<Temperature>();
 	}
 
 	
@@ -25,7 +25,7 @@ public class TemperatureList implements Serializable {
 	 * Adds a new Temperature to the TemperatureList
 	 * @param addedTemperature The Temperature which will be added to the TemperatureList
 	 */
-	public static void addTemperature(Temperature addedTemperature){
+	public void addTemperature(Temperature addedTemperature){
 		temperature.add(addedTemperature);
 	}
 	
@@ -39,7 +39,7 @@ public class TemperatureList implements Serializable {
 
 
 	public void setTemperature(ArrayList<Temperature> addedTemperature) {
-		this.temperature = addedTemperature;
+		temperature = addedTemperature;
 	}
  
 
@@ -52,7 +52,7 @@ public class TemperatureList implements Serializable {
 	}
 
 
-	public  Temperature get(int i) {
+	public Temperature get(int i) {
 		return temperature.get(i);
 	}
 	

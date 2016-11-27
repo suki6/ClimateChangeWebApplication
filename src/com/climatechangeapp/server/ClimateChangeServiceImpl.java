@@ -13,42 +13,19 @@ public class ClimateChangeServiceImpl extends RemoteServiceServlet implements Cl
 	private static final long serialVersionUID = 1710368063913021854L;
 	private java.io.BufferedReader fileReader;
 
-		public void dataReader(){
-			try {
-				fileReader = new java.io.BufferedReader(new java.io.FileReader(new java.io.File("GlobalLandTemperaturesByMajorCity_v1.csv")));
-			
-				String row = "";
-				fileReader.readLine();
-				while(null!=(row=fileReader.readLine())){
-					String[] split = row.split(",");
-					System.out.println("split[i]");
-					Temperature temperature = new Temperature(split[0], split[1], split[2], split [3], split[4], split[5], split[6]);
-				
-					TemperatureList.addTemperature(temperature);
-					
-					
-					
-				//	temperature1.addTemperature(temperature);
-				
-					//			if(this.isDataRelevant(temperatures)) {
-						
-		//			}
-				}
-			}
-			
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		//	this.dataConcentrate();
-		
-	     
+	public TemperatureList parseDataFromCsvFile()
+	{
+		CsvDataImport csv = new CsvDataImport();
+		return csv.parseDataFromCsvFile();
 	}
-
+	
 	public TemperatureList getTemperature() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
+	public void addTemperature(Temperature addedTemperature)
+	{
+		
+	}
 }

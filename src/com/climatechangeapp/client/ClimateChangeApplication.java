@@ -3,10 +3,9 @@ package com.climatechangeapp.client;
 
 
 import com.google.gwt.core.client.EntryPoint;
-/**
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-*/
+//import com.google.gwt.core.client.GWT;
+//import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.Window;
 	
 
 /**
@@ -14,23 +13,34 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 public class ClimateChangeApplication implements EntryPoint {
 	
-/**	
-	private ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
-*/
+	/**
+	public void parseDataFromCsvFile()	{
+	
+		ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
+
+		AsyncCallback callback = new AsyncCallback() {
+		public void onSuccess(String result) {
+
+			// handle the successful scenario.
+			Window.alert("Client request processed sucessfully. Result from server: " + result);
+
+	   }
+		
+		public void onFailure(Throwable caught) {
+			// handle failure from server.
+			Window.alert("Not able to process client reuest. Exception occured at server: " + caught);
+
+		}
+	};
+	
+	climateChangeSvc.parseDataFromCsvFile(callback);
+	}
+	*/
 	
 	/**
 	 * This is the entry point method
 	 */
-
 	public void onModuleLoad() {
-
-
-
-//	    TemperatureList tempL;
-//		AsyncCallback<Void> callback = null;
-//		climateChangeSvc.dataReader(callback);
-
-
 
 		WorldMap map = new WorldMap();
 		

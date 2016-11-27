@@ -7,5 +7,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("tempData")
 public interface ClimateChangeService extends RemoteService {
 	TemperatureList getTemperature();
-	void dataReader();
+	TemperatureList parseDataFromCsvFile();
+	void addTemperature(Temperature addedTemperature);
 }

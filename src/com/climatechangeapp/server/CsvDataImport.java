@@ -1,6 +1,10 @@
 package com.climatechangeapp.server;
 
-
+/**
+ * This class imports the data from the csv file
+ * @author Nithi
+ *
+ */
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,36 +23,21 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class CsvDataImport {
 	
-	public static void parseDataFromCsvFile()
+	public TemperatureList parseDataFromCsvFile()
 	{
-	     //ArrayList<ArrayList<String>> dataFromFile = new ArrayList<ArrayList<String>>();
+		TemperatureList tempList = new TemperatureList();
 	     try{
-	    	 Scanner scanner = new Scanner(new FileReader("/Users/suki/git/ClimateChangeWebApplication/war/GlobalLandTemperaturesByMajorCity_v1.csv"));
-	    	 
-	    	 //test 
+	    	 Scanner scanner = new Scanner(new FileReader("/Users/Nithi/git/ClimateChangeWebApplication/GlobalLandTemperaturesByMajorCity_v1.csv"));
 	    	 
 	         while(scanner.hasNextLine())
 	         {
 	            String dataInRow=scanner.nextLine();
-	            //String []dataInRowArray=dataInRow.split(",");
-	            CsvConverter.convertLine(dataInRow);
-	            //ArrayList<String> rowDataFromFile=new ArrayList<String>(Arrays.asList(dataInRowArray));
-	            //dataFromFile.add(rowDataFromFile);
+	            tempList.addTemperature(CsvConverter.convertLine(dataInRow));
 	         }
 	         scanner.close();
 	     }catch (FileNotFoundException e){
 	        e.printStackTrace();
 	     }
-	     /*
-	     for(ArrayList<String> row : dataFromFile)
-	     {
-	    	 for(String s : row)
-	    	 {
-	    		 temp = new Temperature(s, s, s, s, s, s, s);
-	    	 }
-	    	
-	    	 TemperatureList.addTemperature(temp);
-	     }
-	     */
+	     return tempList;
 	}
 }

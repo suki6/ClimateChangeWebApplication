@@ -11,7 +11,7 @@ import com.climatechangeapp.client.TemperatureList;
  */
 public class CsvConverter {
 
-	public static void convertLine(String line) {
+	public static Temperature convertLine(String line) {
 		// TODO Auto-generated method stub
 		String[] row = line.split(",");
 		
@@ -23,8 +23,8 @@ public class CsvConverter {
 		String latitude = row[5];
 		String longitude = row[6];
 		 		
-		Temperature temp = new Temperature(date, averageTemp, averageTempUncertainty, city, country, latitude, longitude);
-		TemperatureList.addTemperature(temp);
+		return new Temperature(date, averageTemp, averageTempUncertainty, city, country, latitude, longitude);
+		
 		
 	
 	}
