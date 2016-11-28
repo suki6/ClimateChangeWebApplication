@@ -32,6 +32,9 @@ public class WorldMap {
 		initialize();
 	}
 
+	/**
+	 * initializes the visualization of the worldmap
+	 */
 	protected void initialize() {
 		ChartLoader chartLoader = new ChartLoader(ChartPackage.GEOCHART);
 		chartLoader.loadApi(new Runnable() {
@@ -47,7 +50,9 @@ public class WorldMap {
 		});
 	}
 
-	
+	/**
+	 * draws the worldmap with data of DataTable and marks them in the worldmap
+	 */
 	private void draw() {
 		// Prepare the data
 		DataTable dataTable = DataTable.create();

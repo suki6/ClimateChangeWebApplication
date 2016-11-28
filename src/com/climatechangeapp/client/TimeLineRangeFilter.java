@@ -73,6 +73,9 @@ public class TimeLineRangeFilter {
 		return numberRangeFilter;
 	}
 	
+	/**
+	 * draws the range filter with content of dataArray
+	 */
 	private void draw() {
 		// Set control options
 		NumberRangeFilterOptions numberRangeFilterOptions = NumberRangeFilterOptions.create();
