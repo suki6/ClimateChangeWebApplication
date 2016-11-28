@@ -15,6 +15,7 @@ import com.googlecode.gwt.charts.client.DataTable;
 import com.googlecode.gwt.charts.client.controls.Dashboard;
 import com.googlecode.gwt.charts.client.controls.filter.StringFilter;
 import com.googlecode.gwt.charts.client.controls.filter.StringFilterOptions;
+import com.googlecode.gwt.charts.client.options.MatchType;
 import com.googlecode.gwt.charts.client.table.TableOptions;
 import com.googlecode.gwt.charts.client.util.ChartHelper;
 
@@ -85,6 +86,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			// Set control options
 			StringFilterOptions stringFilterOptions = StringFilterOptions.create();
 			stringFilterOptions.setFilterColumnIndex(0);
+			stringFilterOptions.setMatchType(MatchType.ANY);
 			stringFilter.setOptions(stringFilterOptions);
 
 			// Generate data
