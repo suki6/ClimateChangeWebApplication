@@ -11,6 +11,8 @@ import com.climatechangeapp.client.TemperatureList;
  */
 public class CsvConverter {
 
+	//String line gets split up with seperator "," and the string values will be assigned to a String array
+	//Those String arrays will be summarized (each line) in the Temperature object
 	public static Temperature convertLine(String line) {
 		// TODO Auto-generated method stub
 		String[] row = line.split(",");

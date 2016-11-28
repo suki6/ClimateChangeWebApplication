@@ -23,6 +23,8 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class CsvDataImport {
 	
+	//reads csv file and each String line goes through method convertLine
+	//method convertLine returns a Temperature object, which will be added to a TemperatureList
 	public TemperatureList parseDataFromCsvFile()
 	{
 		TemperatureList tempList = new TemperatureList();
