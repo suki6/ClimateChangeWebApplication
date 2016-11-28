@@ -29,7 +29,7 @@ public class CsvDataImport {
 	{
 		TemperatureList tempList = new TemperatureList();
 	     try{
-	    	 Scanner scanner = new Scanner(new FileReader("/Users/Nithi/git/ClimateChangeWebApplication/GlobalLandTemperaturesByMajorCity_v1.csv"));
+	    	 Scanner scanner = new Scanner(new FileReader("/ClimateChangeApplication/src/com/climatechangeapp/server/GlobalLandTemperaturesByMajorCity_v1.csv"));
 	    	 
 	         while(scanner.hasNextLine())
 	         {

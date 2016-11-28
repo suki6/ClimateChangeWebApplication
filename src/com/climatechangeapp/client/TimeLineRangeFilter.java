@@ -15,6 +15,11 @@ import com.googlecode.gwt.charts.client.controls.filter.NumberRangeFilterOptions
 import com.googlecode.gwt.charts.client.corechart.BarChartOptions;
 import com.googlecode.gwt.charts.client.util.ChartHelper;;
 
+/**
+ * This class visualizes the timeline and the range filter
+ * @author suki
+ *
+ */
 public class TimeLineRangeFilter {
 	
 	private Dashboard dashboard;

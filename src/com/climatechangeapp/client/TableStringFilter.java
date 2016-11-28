@@ -18,6 +18,12 @@ import com.googlecode.gwt.charts.client.controls.filter.StringFilterOptions;
 import com.googlecode.gwt.charts.client.table.TableOptions;
 import com.googlecode.gwt.charts.client.util.ChartHelper;
 
+
+/**
+ * This class visualizes the string filter and the table in the frontend
+ * @author suki
+ *
+ */
 	public class TableStringFilter {
 		private Dashboard dashboard;
 		private ChartWrapper<TableOptions> tableWrapper;
@@ -30,7 +36,10 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 		public TableStringFilter() {
 			initialize();
 		}
-
+		
+		/**
+		 * initilazes the table and draws the table
+		 */
 		private void initialize() {
 			ChartLoader chartLoader = new ChartLoader(ChartPackage.CONTROLS);
 			chartLoader.loadApi(new Runnable() {
@@ -69,7 +78,9 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			}
 			return stringFilter;
 		}
-
+		/**
+		 * draws the data of the table
+		 */
 		private void draw() {
 			// Set control options
 			StringFilterOptions stringFilterOptions = StringFilterOptions.create();
