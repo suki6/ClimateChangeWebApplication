@@ -100,7 +100,8 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			dashboard.bind(stringFilter, tableWrapper);
 			dashboard.draw(dataTable);
 		
-			RootPanel.get().add(vp);
+			RootPanel.get("newTable").add(vp);
+			RootPanel.get("newTableFilter").add(stringFilter);
 		}
 	
 		
