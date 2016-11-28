@@ -45,9 +45,9 @@ public class ClimateChangeApplication implements EntryPoint {
 		WorldMap map = new WorldMap();
 		
 		
-    	TableFilter.initFilter();	    
+  //  	TableFilter.initFilter();	    
 		
-		Table.initialize();
+//		Table.initialize();
 		
 		TableStringFilter tbs = new TableStringFilter();
 
