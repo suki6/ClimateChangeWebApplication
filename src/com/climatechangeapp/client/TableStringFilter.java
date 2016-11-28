@@ -88,6 +88,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			stringFilterOptions.setFilterColumnIndex(0);
 			stringFilterOptions.setMatchType(MatchType.ANY);
 			stringFilter.setOptions(stringFilterOptions);
+			
 
 			// Generate data
 			JsArrayMixed dataArray = JsonUtils
