@@ -82,7 +82,7 @@ public class TimeLineRangeFilter {
 
 		// Generate data
 		JsArrayMixed dataArray = JsonUtils
-			.unsafeEval("[['Name', 'Age'],['Michael' , 12],['Elisa', 20],['Robert', 7],['John', 54],['Jessica', 22],['Aaron', 3],['Margareth', 42],['Miranda', 33]]");
+			.unsafeEval("[['City', 'Age'],['Zürich' , 1980],['Berlin', 2000],['Paris', 1970],['Toronto', 1954],['Sydney', 2002],['New York', 1903],['Rio', 1942],['Moscow', 1933]]");
 
 		// Prepare the data
 		DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
