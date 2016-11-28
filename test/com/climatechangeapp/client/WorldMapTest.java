@@ -1,10 +1,10 @@
-package com.climatechangeapp.server;
+package com.climatechangeapp.client;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class CsvDataImportTest {
+public class WorldMapTest {
 
 	@Test
 	public void test() {
