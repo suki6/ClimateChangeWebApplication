@@ -35,13 +35,12 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 		private DockLayoutPanel RootLayoutPanel;
 
 		public TableStringFilter() {
-			initialize();
 		}
 		
 		/**
-		 * initilazes the table and draws the table
+		 * initializes the table and draws the table
 		 */
-		private void initialize() {
+		protected void initialize() {
 			ChartLoader chartLoader = new ChartLoader(ChartPackage.CONTROLS);
 			chartLoader.loadApi(new Runnable() {
 
@@ -90,7 +89,11 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			stringFilter.setOptions(stringFilterOptions);
 			
 
-			// Generate data
+			
+//			
+//			JsArrayMixed dataArray = JsonUtils.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
+//					+ );
+//			// Generate data
 			JsArrayMixed dataArray = JsonUtils
 				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
 						+ "['01.01.1970' , 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"

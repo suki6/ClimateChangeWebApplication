@@ -87,6 +87,13 @@ public class Temperature {
 	public String getLatitude() {
 		return latitude;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "['" + getDate() + "', " + getAverageTemp() + ", " + getAverageTempUncertainty() + ", '" + getCity() + "', '" + getCountry() + "', '" + getLatitude() + "', '" + getLongitude() + "']";
+	}
 	
 	
 }
