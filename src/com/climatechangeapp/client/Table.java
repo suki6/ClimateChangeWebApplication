@@ -46,8 +46,10 @@ public class Table {
 			                String arr[] = new String[200];
 			                @Override
 			                public void onResponseReceived(Request req, Response resp) {
+			                	add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
 			                	String text = resp.getText();
 			                    arr = text.split("\n");
+			                    add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
 			                    for(String str: arr) {
 			                       String temp[] = str.split(",");
 			                       add(new Temperature(temp[0], temp[1], temp[2],temp[3],temp[4],temp[5], temp[6]));
