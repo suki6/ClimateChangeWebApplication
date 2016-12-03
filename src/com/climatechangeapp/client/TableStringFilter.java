@@ -112,6 +112,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			
 			// Prepare the data
 			DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
+			
 
 			// Draw the chart
 			dashboard.bind(stringFilter, tableWrapper);
