@@ -10,6 +10,8 @@
   <inherits name='com.googlecode.gwt.charts.Charts'/>
   <inherits name='com.google.gwt.user.User'/>
   <inherits name="com.kiouri.sliderbar.SliderBarMVP" />
+  <!-- <inherits name="com.smartgwt.SmartGwt"/> -->
+  
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
   <!-- any one of the following lines.                            -->
