@@ -56,5 +56,4 @@ public class TemperatureList implements Serializable {
 		return temperature.get(i);
 	}
 	
-	
 }

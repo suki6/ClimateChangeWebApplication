@@ -29,6 +29,7 @@ public class WorldMap {
 	protected DockLayoutPanel RootLayoutPanel;
 
 	public WorldMap() {
+		initialize();
 	}
 
 	/**
