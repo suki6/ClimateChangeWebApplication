@@ -41,7 +41,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 		/**
 		 * initilazes the table and draws the table
 		 */
-		private void initialize() {
+		public void initialize() {
 			ChartLoader chartLoader = new ChartLoader(ChartPackage.CONTROLS);
 			chartLoader.loadApi(new Runnable() {
 
