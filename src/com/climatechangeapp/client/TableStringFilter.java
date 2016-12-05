@@ -173,7 +173,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 
 			// Generate data
 			JsArrayMixed dataArray = JsonUtils
-				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'LÃ¤ngengrad', 'Breitengrad'],"
+				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
 						+ "['01.01.1970' , 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
 			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
 			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
@@ -208,7 +208,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			RootPanel.get("newTableFilter4").add(cityFilter);
 			RootPanel.get("newTableFilter5").add(countryFilter);
 			RootPanel.get("newTableFilter6").add(latitudeFilter);
-			RootPanel.get("newTableFilter47").add(longitudeFilter);
+			RootPanel.get("newTableFilter7").add(longitudeFilter);
 		}
 	
 		
