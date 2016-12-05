@@ -202,8 +202,13 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			dashboard.draw(dataTable);
 		
 			RootPanel.get("newTable").add(vp);
-			RootPanel.get("newTableFilter").add(dateFilter);
+			RootPanel.get("newTableFilter1").add(dateFilter);
 			RootPanel.get("newTableFilter2").add(averageTempFilter);
+			RootPanel.get("newTableFilter3").add(averageTempUncertaintyFilter);
+			RootPanel.get("newTableFilter4").add(cityFilter);
+			RootPanel.get("newTableFilter5").add(countryFilter);
+			RootPanel.get("newTableFilter6").add(latitudeFilter);
+			RootPanel.get("newTableFilter47").add(longitudeFilter);
 		}
 	
 		

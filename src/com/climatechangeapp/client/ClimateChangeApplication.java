@@ -56,6 +56,8 @@ public class ClimateChangeApplication implements EntryPoint {
 		TimeLine timeLine = new TimeLine(1830, 2015, "1280", "60");
 		
 		TimeLineRangeFilter tlrf = new TimeLineRangeFilter();
+		
+		//SliderExample mapslider = new SliderExample();
 	}
 		 
 	
