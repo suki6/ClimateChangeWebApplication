@@ -28,8 +28,13 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 	public class TableStringFilter {
 		private Dashboard dashboard;
 		private ChartWrapper<TableOptions> tableWrapper;
-		private StringFilter stringFilter;
-		private StringFilter stringFilter2;
+		private StringFilter dateFilter;
+		private StringFilter averageTempFilter;
+		private StringFilter averageTempUncertaintyFilter;
+		private StringFilter cityFilter;
+		private StringFilter countryFilter;
+		private StringFilter latitudeFilter;
+		private StringFilter longitudeFilter;
 		
 		private VerticalPanel vp = new VerticalPanel();
 		
@@ -51,8 +56,13 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 					dashboard = new Dashboard();
 					vp.add(dashboard);
 					vp.add(getDashboardWidget());
-					vp.add(getStringFilter());
-					vp.add(getStringFilter2());
+					vp.add(getDateFilter());
+					vp.add(getAverageTempFilter());
+					vp.add(getAverageTempUncertaintyFilter());
+					vp.add(getCityFilter());
+					vp.add(getCountryFilter());
+					vp.add(getLatitudeFilter());
+					vp.add(getLongitudeFilter());
 					vp.add(getTableWrapper());
 					
 					draw();
@@ -75,17 +85,53 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			return tableWrapper;
 		}
 		
-		private StringFilter getStringFilter2() {
-			if (stringFilter2 == null) {
-				stringFilter2 = new StringFilter();
+		private StringFilter getDateFilter() {
+			if (dateFilter == null) {
+				dateFilter = new StringFilter();
 			}
-			return stringFilter2;
+			return dateFilter;
 		}
-		private StringFilter getStringFilter() {
-			if (stringFilter == null) {
-				stringFilter = new StringFilter();
+		
+		private StringFilter getAverageTempFilter() {
+			if (averageTempFilter == null) {
+				averageTempFilter = new StringFilter();
 			}
-			return stringFilter;
+			return averageTempFilter;
+		}
+		
+		private StringFilter getAverageTempUncertaintyFilter() {
+			if (averageTempUncertaintyFilter == null) {
+				averageTempUncertaintyFilter = new StringFilter();
+			}
+			return averageTempUncertaintyFilter;
+		}
+		
+		private StringFilter getCityFilter() {
+			if (cityFilter == null) {
+				cityFilter = new StringFilter();
+			}
+			return cityFilter;
+		}
+		
+		private StringFilter getCountryFilter() {
+			if (countryFilter == null) {
+				countryFilter = new StringFilter();
+			}
+			return countryFilter;
+		}
+		
+		private StringFilter getLatitudeFilter() {
+			if (latitudeFilter == null) {
+				latitudeFilter = new StringFilter();
+			}
+			return latitudeFilter;
+		}
+		
+		private StringFilter getLongitudeFilter() {
+			if (longitudeFilter == null) {
+				longitudeFilter = new StringFilter();
+			}
+			return longitudeFilter;
 		}
 		/**
 		 * draws the data of the table
@@ -94,14 +140,35 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			// Set control options
 			StringFilterOptions stringFilterOptions0 = StringFilterOptions.create();
 			StringFilterOptions stringFilterOptions1 = StringFilterOptions.create();
+			StringFilterOptions stringFilterOptions2 = StringFilterOptions.create();
+			StringFilterOptions stringFilterOptions3 = StringFilterOptions.create();
+			StringFilterOptions stringFilterOptions4 = StringFilterOptions.create();
+			StringFilterOptions stringFilterOptions5 = StringFilterOptions.create();
+			StringFilterOptions stringFilterOptions6 = StringFilterOptions.create();
 			
 			stringFilterOptions0.setFilterColumnIndex(0);
 			stringFilterOptions1.setFilterColumnIndex(1);
+			stringFilterOptions2.setFilterColumnIndex(2);
+			stringFilterOptions3.setFilterColumnIndex(3);
+			stringFilterOptions4.setFilterColumnIndex(4);
+			stringFilterOptions5.setFilterColumnIndex(5);
+			stringFilterOptions6.setFilterColumnIndex(6);
 			
 			stringFilterOptions0.setMatchType(MatchType.ANY);
 			stringFilterOptions1.setMatchType(MatchType.ANY);
-			stringFilter.setOptions(stringFilterOptions0);
-			stringFilter2.setOptions(stringFilterOptions1);
+			stringFilterOptions2.setMatchType(MatchType.ANY);
+			stringFilterOptions3.setMatchType(MatchType.ANY);
+			stringFilterOptions4.setMatchType(MatchType.ANY);
+			stringFilterOptions5.setMatchType(MatchType.ANY);
+			stringFilterOptions6.setMatchType(MatchType.ANY);
+			
+			dateFilter.setOptions(stringFilterOptions0);
+			averageTempFilter.setOptions(stringFilterOptions1);
+			averageTempUncertaintyFilter.setOptions(stringFilterOptions2);
+			cityFilter.setOptions(stringFilterOptions3);
+			countryFilter.setOptions(stringFilterOptions4);
+			latitudeFilter.setOptions(stringFilterOptions5);
+			longitudeFilter.setOptions(stringFilterOptions6);
 			
 
 			// Generate data
@@ -125,13 +192,18 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
 
 			// Draw the chart
-			dashboard.bind(stringFilter, tableWrapper);
-			dashboard.bind(stringFilter2, tableWrapper);
+			dashboard.bind(dateFilter, tableWrapper);
+			dashboard.bind(averageTempFilter, tableWrapper);
+			dashboard.bind(averageTempUncertaintyFilter, tableWrapper);
+			dashboard.bind(cityFilter, tableWrapper);
+			dashboard.bind(countryFilter, tableWrapper);
+			dashboard.bind(latitudeFilter, tableWrapper);
+			dashboard.bind(longitudeFilter, tableWrapper);
 			dashboard.draw(dataTable);
 		
 			RootPanel.get("newTable").add(vp);
-			RootPanel.get("newTableFilter").add(stringFilter);
-			RootPanel.get("newTableFilter2").add(stringFilter2);
+			RootPanel.get("newTableFilter").add(dateFilter);
+			RootPanel.get("newTableFilter2").add(averageTempFilter);
 		}
 	
 		
