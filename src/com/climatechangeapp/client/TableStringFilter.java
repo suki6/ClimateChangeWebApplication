@@ -29,6 +29,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 		private Dashboard dashboard;
 		private ChartWrapper<TableOptions> tableWrapper;
 		private StringFilter stringFilter;
+		private StringFilter stringFilter2;
 		
 		private VerticalPanel vp = new VerticalPanel();
 		
@@ -41,7 +42,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 		/**
 		 * initilazes the table and draws the table
 		 */
-		public void initialize() {
+		private void initialize() {
 			ChartLoader chartLoader = new ChartLoader(ChartPackage.CONTROLS);
 			chartLoader.loadApi(new Runnable() {
 
@@ -51,6 +52,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 					vp.add(dashboard);
 					vp.add(getDashboardWidget());
 					vp.add(getStringFilter());
+					vp.add(getStringFilter2());
 					vp.add(getTableWrapper());
 					
 					draw();
@@ -72,7 +74,13 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			}
 			return tableWrapper;
 		}
-
+		
+		private StringFilter getStringFilter2() {
+			if (stringFilter2 == null) {
+				stringFilter2 = new StringFilter();
+			}
+			return stringFilter2;
+		}
 		private StringFilter getStringFilter() {
 			if (stringFilter == null) {
 				stringFilter = new StringFilter();
@@ -84,15 +92,21 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 		 */
 		private void draw() {
 			// Set control options
-			StringFilterOptions stringFilterOptions = StringFilterOptions.create();
-			stringFilterOptions.setFilterColumnIndex(0);
-			stringFilterOptions.setMatchType(MatchType.ANY);
-			stringFilter.setOptions(stringFilterOptions);
+			StringFilterOptions stringFilterOptions0 = StringFilterOptions.create();
+			StringFilterOptions stringFilterOptions1 = StringFilterOptions.create();
+			
+			stringFilterOptions0.setFilterColumnIndex(0);
+			stringFilterOptions1.setFilterColumnIndex(1);
+			
+			stringFilterOptions0.setMatchType(MatchType.ANY);
+			stringFilterOptions1.setMatchType(MatchType.ANY);
+			stringFilter.setOptions(stringFilterOptions0);
+			stringFilter2.setOptions(stringFilterOptions1);
 			
 
 			// Generate data
 			JsArrayMixed dataArray = JsonUtils
-				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
+				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'LÃ¤ngengrad', 'Breitengrad'],"
 						+ "['01.01.1970' , 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
 			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
 			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
@@ -109,14 +123,15 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			
 			// Prepare the data
 			DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
-			
 
 			// Draw the chart
 			dashboard.bind(stringFilter, tableWrapper);
+			dashboard.bind(stringFilter2, tableWrapper);
 			dashboard.draw(dataTable);
 		
 			RootPanel.get("newTable").add(vp);
 			RootPanel.get("newTableFilter").add(stringFilter);
+			RootPanel.get("newTableFilter2").add(stringFilter2);
 		}
 	
 		
