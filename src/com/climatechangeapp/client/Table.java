@@ -4,13 +4,21 @@ package com.climatechangeapp.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.climatechangeapp.server.CsvDataImport;
+//import com.climatechangeapp.server.CsvDataImport;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
+import com.google.gwt.http.client.Response;
+
+
 
 
 public class Table {
@@ -31,22 +39,25 @@ public class Table {
 
 			private static final long serialVersionUID = 1L;
 	
-			{	
-			add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
-			add(new Temperature("01.09.2014", "12°C", "2°C", "TEST", "Switzerland", "12.34N", "34.25W"));
-			add(new Temperature("01.06.1989", "3°C", "1.4°C", "TEST2", "Switzerland", "12.34N", "34.25W"));
-			add(new Temperature("01.07.2010", "43°C", "1°C", "NewYork", "USA", "12.34N", "34.25W"));
-			add(new Temperature("01.07.1994", "1°C", ".3°C", "Sydney", "Australia", "12.34N", "34.25W"));
-			add(new Temperature("01.07.2013", "12°C", "0.3°C", "Tokyo", "Japan", "12.34N", "34.25W"));
-			add(new Temperature("01.07.2002", "14°C", "1.3°C", "Rio", "Brazil", "12.34N", "34.25W"));
-			add(new Temperature("01.07.2000", "5°C", "2.3°C", "Berlin", "Germany", "12.34N", "34.25W"));
-			add(new Temperature("01.07.1985", "15°C", "1.3°C", "Johannesburg", "South Africa", "12.34N", "34.25W"));
+			{
+				
+//			add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+//			add(new Temperature("01.09.2014", "12°C", "2°C", "TEST", "Switzerland", "12.34N", "34.25W"));
+//			add(new Temperature("01.06.1989", "3°C", "1.4°C", "TEST2", "Switzerland", "12.34N", "34.25W"));
+//			add(new Temperature("01.07.2010", "43°C", "1°C", "NewYork", "USA", "12.34N", "34.25W"));
+//			add(new Temperature("01.07.1994", "1°C", ".3°C", "Sydney", "Australia", "12.34N", "34.25W"));
+//			add(new Temperature("01.07.2013", "12°C", "0.3°C", "Tokyo", "Japan", "12.34N", "34.25W"));
+//			add(new Temperature("01.07.2002", "14°C", "1.3°C", "Rio", "Brazil", "12.34N", "34.25W"));
+//			add(new Temperature("01.07.2000", "5°C", "2.3°C", "Berlin", "Germany", "12.34N", "34.25W"));
+//			add(new Temperature("01.07.1985", "15°C", "1.3°C", "Johannesburg", "South Africa", "12.34N", "34.25W"));
 			add(new Temperature("01.07.2001", "6°C", "3.2°C", "Moscow", "Russia", "12.34N", "34.25W"));
- 	//		add(new Temperature(tl.get(0).getDate(), tl.get(0).getAverageTemp(), tl.get(0).getAverageTempUncertainty(), tl.get(0).getCity(), tl.get(0).getCountry(), tl.get(0).getLatitude(), tl.get(0).getLongitude()));
-//				  try {
-//					
+ 			
+				
+			// get data from csv-file by HTTP request
+// 			try {
 //			            new RequestBuilder(RequestBuilder.GET, "GlobalLandTemperaturesByMajorCity_v1.csv").sendRequest("", new RequestCallback() {
-//			                String arr[] = new String[200];
+//			                String arr[] = new String[228180];
+//			                
 //			                @Override
 //			                public void onResponseReceived(Request req, Response resp) {
 //			                	String text = resp.getText();
@@ -54,23 +65,24 @@ public class Table {
 //			                    for(String str: arr) {
 //			                       String temp[] = str.split(",");
 //			                       add(new Temperature(temp[0], temp[1], temp[2],temp[3],temp[4],temp[5], temp[6]));
-//			   						
-//			   					
+//			                       if(str.startsWith("1990"))
+//			                            textArea.setText(textArea.getText()+str+"\n");
 //			                    }
 //			                }
 //			                
 //			                @Override
 //			                public void onError(Request res, Throwable throwable) {
 //			                    // handle errors
-//			                	add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+//			                	add(new Temperature("01.07.2016", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
 //			                }
 //			            });
 //			        } catch (RequestException e) {
 //			            // TODO Auto-generated catch block
 //			            e.printStackTrace();
-//			            add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
+//			            add(new Temperature("01.07.2016", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
 //			        }
 
+ 			
 			
 						
 //						add(new Temperature("01.07.1980", "23°C", "1°C", "Zurich", "Switzerland", "12.34N", "34.25W"));
