@@ -44,6 +44,6 @@ public class CsvInArray {
 	 
 	 
 	 vp.add(textArea);
-
+	 RootPanel.get("temperatureList").add(vp);
      }
 }

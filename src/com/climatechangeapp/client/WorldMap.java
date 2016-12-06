@@ -27,6 +27,12 @@ public class WorldMap {
 	protected VerticalPanel vp = new VerticalPanel();
 
 	protected DockLayoutPanel RootLayoutPanel;
+	
+	private SliderEntry sliderEntry;
+	
+	public int actualYear;
+
+	
 
 	public WorldMap() {
 		initialize();
@@ -44,7 +50,7 @@ public class WorldMap {
 				// Create and attach the chart
 				geoChart = new GeoChart();
 				vp.add(geoChart);
-				
+	
 				draw();
 			}
 		});
@@ -54,6 +60,8 @@ public class WorldMap {
 	 * draws the worldmap with data of DataTable and marks them in the worldmap
 	 */
 	private void draw() {
+//		actualYear = sliderEntry.getYear();
+		
 		// Prepare the data
 		DataTable dataTable = DataTable.create();
 		dataTable.addColumn(ColumnType.STRING, "Country");
