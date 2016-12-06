@@ -21,7 +21,7 @@ import com.google.gwt.user.client.ui.Widget;
 @SuppressWarnings("deprecation")
 public class Slider extends Widget {    
     private JSONObject m_defaultOptions;
-	private SliderExample m_listener;
+	private SliderEntry m_listener;
     
     /**
      * Create a slider with the specified ID.  The ID is required because the slider needs a specific ID to connect to.
@@ -166,7 +166,7 @@ public class Slider extends Widget {
     }
     
     // New Try: Add a Listener: Joh
-    public void addListener(SliderExample one) {
+    public void addListener(SliderEntry one) {
         m_listener = one;
     }
     

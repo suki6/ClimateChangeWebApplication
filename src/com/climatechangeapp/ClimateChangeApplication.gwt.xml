@@ -10,6 +10,7 @@
   <inherits name='com.googlecode.gwt.charts.Charts'/>
   <inherits name='com.google.gwt.user.User'/>
   <inherits name="com.kiouri.sliderbar.SliderBarMVP" />
+    <inherits name="com.google.gwt.json.JSON" />
 
   
   <!-- Inherit the default GWT style sheet.  You can change       -->

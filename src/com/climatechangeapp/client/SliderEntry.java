@@ -1,22 +1,21 @@
 package com.climatechangeapp.client;
 
-import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class SliderExample {
+public class SliderEntry {
 
     private Slider m_slider;
     private Label m_sliderLabel;
     
     // This is the entry point method.
-    public SliderExample() {
+    public SliderEntry() {
         // Create a slider with default behavior: minimum possible value of 1850, maximum possible value of 2013
-        m_sliderLabel = new Label("1850");					//StartWert
-        m_sliderLabel.addStyleName("slider-values");		//Für CSS
-        m_slider = new Slider("slider");					//Erstellt den Slider
-        RootPanel.get("sliderContainer").add(m_sliderLabel);//Für HTML-Element
-        RootPanel.get("sliderContainer").add(m_slider);
+        m_sliderLabel = new Label("1850");					
+        m_sliderLabel.addStyleName("slider-values");		// Creates Values for CSS file
+        m_slider = new Slider("slider");					
+        RootPanel.get("mapTimeSlider").add(m_sliderLabel);	// Shows value for tests, has to be removed before release
+        RootPanel.get("mapTimeSlider").add(m_slider);
         m_slider.addListener(this);
     }
 
