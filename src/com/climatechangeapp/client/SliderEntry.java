@@ -5,17 +5,18 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class SliderEntry {
 
-    private Slider mapSlider;
-    private Label mapSliderLabel;
+    private Slider timeSlider;
+    private Label timeSliderLabel;
+    static int year;
     
     public SliderEntry() {
-        // Create a slider with default behavior: minimum possible value of 1850, maximum possible value of 2013
-        mapSliderLabel = new Label("1850");					
-        mapSliderLabel.addStyleName("slider-values");			// Creates Values for CSS file, can be removed before release
-        mapSlider = new Slider("slider");					
-        RootPanel.get("mapTimeSlider").add(mapSliderLabel);		// Shows value for tests, has to be removed before release
-        RootPanel.get("mapTimeSlider").add(mapSlider);
-        mapSlider.addListener(this);
+        // Creates a slider with a minimum possible value of 1850 and a maximum possible value of 2013
+        timeSliderLabel = new Label("1850");					
+        timeSliderLabel.addStyleName("slider-values");			// Creates Values for CSS file, can be removed before release.
+        timeSlider = new Slider("slider");					
+        RootPanel.get("mapTimeSlider").add(timeSliderLabel);	// Shows the current year as a text.
+        RootPanel.get("mapTimeSlider").add(timeSlider);
+        timeSlider.addListener(this);
     }
 
     public void onChange(SliderEvent e) {
@@ -23,7 +24,8 @@ public class SliderEntry {
     }
 
     public boolean onSlide(SliderEvent e) {
-        mapSliderLabel.setText("" + e.getValue());
+        timeSliderLabel.setText("" + e.getValue());
+        year = e.getValue();
         return true;
     }
 
@@ -33,5 +35,8 @@ public class SliderEntry {
 
     public void onStop(SliderEvent e) {
         // We are not going to do anything onStop        
+    }
+    public int getYear() {
+    	return year;										//getter for WorldMap
     }
 }
