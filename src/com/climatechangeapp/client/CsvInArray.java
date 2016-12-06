@@ -26,7 +26,7 @@ public class CsvInArray {
                  arr = text.split("\n");
                  for(String str: arr) 
                  {
-					if(str.startsWith("1990"))
+					if(str.startsWith("1890"))
                          textArea.setText(textArea.getText()+str+"\n");
                  }
              }
