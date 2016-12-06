@@ -26,6 +26,9 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
  *
  */
 	public class TableStringFilter {
+		
+		private CsvInArray csvTest;
+		
 		private Dashboard dashboard;
 		private ChartWrapper<TableOptions> tableWrapper;
 		private StringFilter dateFilter;
@@ -182,6 +185,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
 			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
 			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
+//			+ "[csvTest.get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
 			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
 			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
 			+ "['01.07.2001', 6, 2, 'Moscow', 'Russia', '12.34N', '34.25W']]");

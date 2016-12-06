@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Temperature {
 	
-	private ArrayList<Temperature> temperature = new ArrayList<Temperature>();
+	private static ArrayList<Temperature> temperature = new ArrayList<Temperature>();
 	
 
 	private String date;
@@ -52,8 +52,13 @@ public class Temperature {
 	/*
 	 * Adds temperature to TemperatureList
 	 */
-	public void addTemperature(Temperature addedTemperature){
+	public static void addTemperature(Temperature addedTemperature){
 		temperature.add(addedTemperature);
+	}
+	
+	public static ArrayList<Temperature> getTemperature(){
+		return temperature;
+		
 	}
 
 	public String getDate() {
