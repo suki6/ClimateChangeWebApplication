@@ -51,7 +51,8 @@ public class Table {
 //			add(new Temperature("01.07.2000", "5°C", "2.3°C", "Berlin", "Germany", "12.34N", "34.25W"));
 //			add(new Temperature("01.07.1985", "15°C", "1.3°C", "Johannesburg", "South Africa", "12.34N", "34.25W"));
 			add(new Temperature("01.07.2001", "6°C", "3.2°C", "Moscow", "Russia", "12.34N", "34.25W"));
- 			
+// 			add(new Temperature(tl.get(0).getDate(), tl.get(0).getAverageTemp(), tl.get(0).getAverageTempUncertainty(), tl.get(0).getCity(), tl.get(0).getCountry(), tl.get(0).getLatitude(), tl.get(0).getLongitude()));
+
 				
 			// get data from csv-file by HTTP request
 // 			try {
