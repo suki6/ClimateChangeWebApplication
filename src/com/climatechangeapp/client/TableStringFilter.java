@@ -2,6 +2,8 @@ package com.climatechangeapp.client;
 
 
 
+import java.util.ArrayList;
+
 import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
@@ -11,13 +13,16 @@ import com.googlecode.gwt.charts.client.ChartLoader;
 import com.googlecode.gwt.charts.client.ChartPackage;
 import com.googlecode.gwt.charts.client.ChartType;
 import com.googlecode.gwt.charts.client.ChartWrapper;
+import com.googlecode.gwt.charts.client.DataRow;
 import com.googlecode.gwt.charts.client.DataTable;
+import com.googlecode.gwt.charts.client.DataView;
 import com.googlecode.gwt.charts.client.controls.Dashboard;
 import com.googlecode.gwt.charts.client.controls.filter.StringFilter;
 import com.googlecode.gwt.charts.client.controls.filter.StringFilterOptions;
 import com.googlecode.gwt.charts.client.options.MatchType;
 import com.googlecode.gwt.charts.client.table.TableOptions;
 import com.googlecode.gwt.charts.client.util.ChartHelper;
+import com.googlecode.gwt.charts.client.format.PatternFormat;
 
 
 /**
@@ -173,7 +178,10 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			latitudeFilter.setOptions(stringFilterOptions5);
 			longitudeFilter.setOptions(stringFilterOptions6);
 			
-
+			ArrayList testList = new ArrayList<>();
+			testList = csvTest.getTemperatures();
+			
+			
 			// Generate data
 			JsArrayMixed dataArray = JsonUtils
 				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
@@ -182,19 +190,50 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
 			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
 			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
+			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
+			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
+			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
+			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
 			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
 			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
 			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
-//			+ "[csvTest.get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
+//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
 			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
 			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
+			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
+			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
+			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
+//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
+			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
+			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
+			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
+			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
+			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
+			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
+			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
+			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
+			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
+			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
+			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
+			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
+			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
+//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
+			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
+			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
+			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
+			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
+			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
+//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
+			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
+			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
+			
 			+ "['01.07.2001', 6, 2, 'Moscow', 'Russia', '12.34N', '34.25W']]");
 			
 			
 			
 			// Prepare the data
 			DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
-
+			
 			// Draw the chart
 			dashboard.bind(dateFilter, tableWrapper);
 			dashboard.bind(averageTempFilter, tableWrapper);
