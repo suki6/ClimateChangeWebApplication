@@ -16,9 +16,7 @@ public class TestTemperatures {
 	
 
 
-	public TestTemperatures(TestTemperatures testTemperatures) {
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public String gettestString() {
 		return testStrings;
