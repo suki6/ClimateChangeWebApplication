@@ -13,30 +13,8 @@ import com.google.gwt.user.client.Window;
  */
 public class ClimateChangeApplication implements EntryPoint {
 	
-	/**
-	public void parseDataFromCsvFile()	{
 	
-		ClimateChangeServiceAsync climateChangeSvc = GWT.create(ClimateChangeService.class);
 
-	//	AsyncCallback callback = new AsyncCallback() {
-		public void onSuccess(String result) {
-
-			// handle the successful scenario.
-			Window.alert("Client request processed sucessfully. Result from server: " + result);
-
-	   }
-		
-		public void onFailure(Throwable caught) {
-			// handle failure from server.
-			Window.alert("Not able to process client reuest. Exception occured at server: " + caught);
-
-		}
-	};
-	
-	climateChangeSvc.parseDataFromCsvFile(callback);
-	}
-	**/
-	
 	/**
 	 * This is the entry point method
 	 */
