@@ -19,7 +19,10 @@ public class TemperatureList implements Serializable {
 
 	public TemperatureList() {
 	}
-
+	
+	public TemperatureList(Temperature temperature) {
+	}
+	
 	
 	/**
 	 * Adds a new Temperature to the TemperatureList

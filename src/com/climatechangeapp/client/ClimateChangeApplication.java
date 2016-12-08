@@ -27,7 +27,8 @@ public class ClimateChangeApplication implements EntryPoint {
 		
 //  	Table.initialize();
  		
-		CsvInArray.test();
+		CsvInArray.importData();
+	//	CsvInArray.initialize();
 //		CsvInArray.draw();
 		
 		TableStringFilter tbs = new TableStringFilter();

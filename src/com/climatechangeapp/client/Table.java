@@ -27,6 +27,7 @@ public class Table {
 	private static VerticalPanel vp = new VerticalPanel();
 
 	private static TemperatureList tl;
+	private static TestTemperatures tt;
 	private static CsvInArray csvTest;
 	
 	/**

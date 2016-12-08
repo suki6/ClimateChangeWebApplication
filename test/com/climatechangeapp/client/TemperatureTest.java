@@ -10,7 +10,7 @@ public class TemperatureTest {
 
 	@Test
 	public void test() {
-		Temperature temp = new Temperature("test", "test", "test", "test", "test", "test", "test");
+		Temperature temp = new Temperature("test12.04.2002", "test", "test", "test", "test", "test", "test");
 		Temperature temp2 = new Temperature("test", "test", "test", "test", "test", "test", "test");
 		ArrayList<Temperature> temperature1 = new ArrayList<Temperature>();
 		
@@ -19,6 +19,7 @@ public class TemperatureTest {
 		
 		assertEquals(temp, temperature1.get(0));
 		assertEquals(temp2, temperature1.get(1));
+		assertEquals("test12.04.2002", temp.getDate());
 		
 	}
 	
