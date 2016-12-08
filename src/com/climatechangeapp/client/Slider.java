@@ -56,7 +56,7 @@ public class Slider extends Widget {
         
         m_defaultOptions = options;
         if (m_defaultOptions == null) {
-            m_defaultOptions = getOptions(1850, 2013, 1850);
+            m_defaultOptions = getOptions(1850, 2013, 2011);
         }        
     }
     

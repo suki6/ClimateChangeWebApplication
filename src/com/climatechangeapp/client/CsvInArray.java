@@ -57,13 +57,19 @@ public class CsvInArray {
 							int counter = 0;
 							for (String str : arr) {
 								
-								if (str.startsWith("1890") || (str.startsWith("2013"))) {
+								if (str.startsWith("2012") || (str.startsWith("2013"))) {
 									
 									textArea.setText(textArea.getText() + counter + " " + str + "\n");
 									
 									TestTemperatures tt = new TestTemperatures(str);
 								
 									testList.add(tt);
+									
+//									String snip[] = new String [20000000];
+//									snip = str.split(",");
+//									for(s : snip){
+//									}	
+									
 									
 								//	textArea.setText(testList.get(0).gettestString());
 									
@@ -107,7 +113,7 @@ public class CsvInArray {
 							
 							cellTableOfTestTemperatures.setRowCount(testTemp.size(), true);
 							cellTableOfTestTemperatures.setRowData(0, testTemp);
-							cellTableOfTestTemperatures.setPageSize(10);
+			//				cellTableOfTestTemperatures.setPageSize(15);
 							
 							SimplePager pager;
 
@@ -117,6 +123,7 @@ public class CsvInArray {
 						    SimplePager.Resources pagerResources = GWT.create(SimplePager.Resources.class);
 						    pager = new SimplePager(TextLocation.CENTER, pagerResources, false, 0, true);
 						    pager.setDisplay(cellTableOfTestTemperatures);
+						    pager.setVisible(true);
 						    
 						    
 		

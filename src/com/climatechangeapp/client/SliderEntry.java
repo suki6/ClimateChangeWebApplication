@@ -11,7 +11,7 @@ public class SliderEntry {
     
     public SliderEntry() {
         // Creates a slider with a minimum possible value of 1850 and a maximum possible value of 2013
-        timeSliderLabel = new Label("1850");					
+        timeSliderLabel = new Label("2011");					
         timeSliderLabel.addStyleName("slider-values");			// Creates Values for CSS file, can be removed before release.
         timeSlider = new Slider("slider");					
         RootPanel.get("mapTimeSlider").add(timeSliderLabel);	// Shows the current year as a text.
