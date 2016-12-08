@@ -196,7 +196,7 @@ public class Table {
 
 		
 		cellTableOfTemperature.setRowCount(temperatures.size(), true);
-		cellTableOfTemperature.setRowData(0, temperatures);
+		cellTableOfTemperature.setRowData(2, temperatures);
 		
 	
 

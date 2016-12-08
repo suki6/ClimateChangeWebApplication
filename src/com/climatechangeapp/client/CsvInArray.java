@@ -47,9 +47,11 @@ public class CsvInArray {
 								if (str.startsWith("1890"))
 									textArea.setText(textArea.getText() + str + "\n");
 									
-									TestTemperatures tt = new TestTemperatures("str");
-								
-									testList.add(tt);
+//									TestTemperatures tt = new TestTemperatures("str");
+//								
+//									testList.add(tt);
+//									
+
 								
 //									String temp[] = new String[20000];	
 //									temp = str.split(",");
