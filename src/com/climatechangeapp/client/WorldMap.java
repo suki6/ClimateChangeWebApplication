@@ -32,7 +32,9 @@ public class WorldMap {
 	
 	public int actualYear;
 
-	
+	public static void sliderUpdate() {
+		//method to update the map
+	}
 
 	public WorldMap() {
 		initialize();

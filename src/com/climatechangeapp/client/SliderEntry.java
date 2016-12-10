@@ -26,6 +26,7 @@ public class SliderEntry {
     public boolean onSlide(SliderEvent e) {
         timeSliderLabel.setText("" + e.getValue());
         year = e.getValue();
+        WorldMap.sliderUpdate();
         return true;
     }
 
