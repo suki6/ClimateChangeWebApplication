@@ -184,7 +184,7 @@ public class CsvInArray {
 							
 							cellTableOfTestTemperatures.setRowCount(testTemp.size(), true);
 							cellTableOfTestTemperatures.setRowData(0, testTemp);
-							cellTableOfTestTemperatures.setPageSize(testTemp.size());
+							cellTableOfTestTemperatures.setPageSize(15);
 							//cellTableOfTestTemperatures.setVisibleRange(0, 228180);
 							
 							
@@ -197,7 +197,7 @@ public class CsvInArray {
 						    pager = new SimplePager(TextLocation.CENTER, pagerResources, false, 0, true);
 						    pager.setDisplay(cellTableOfTestTemperatures);
 						    pager.setVisible(true);
-		
+						    vp.add(pager);
 						}
 
 						@Override
