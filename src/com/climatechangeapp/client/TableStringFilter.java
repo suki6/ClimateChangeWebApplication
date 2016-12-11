@@ -185,50 +185,30 @@ import com.googlecode.gwt.charts.client.format.PatternFormat;
 			// Generate data
 			JsArrayMixed dataArray = JsonUtils
 				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
-						
-						+ "['01.01.1970' , 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
-			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
-			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
-			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
-			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
-			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
-			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
-			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
-//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
-			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
-			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
-			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
-			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
-			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
-//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
-			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
-			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
-			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
-			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
-			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
-			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.06.1989', 3, 1, 'TEST2', 'Switzerland', '12.34N', '34.25W'],"
-			+ "['01.07.2010', 43, 1, 'NewYork', 'USA', '12.34N', '34.25W'],"
-			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
-			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
-			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
-//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
-			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
-			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
-			+ "['01.07.1994', 1, 3, 'Sydney', 'Australia', '12.34N', '34.25W'],"
-			+ "['01.07.2013', 12, 3, 'Tokyo', 'Japan', '12.34N', '34.25W'],"
-			+ "['01.07.2002', 14, 3, 'Rio', 'Brazil', '12.34N', '34.25W'],"
-//			+ "[csvTest.getTemperatures().get(0).getDate(), csvTest.get(0).getAverageTemp(), csvTest.get(0).getAverageTempUncertainty(), csvTest.get(0).getCity(), csvTest.get(0).getCountry(), csvTest.get(0).getLatitude(), csvTest.get(0).getLongitude()],"
-			+ "['01.07.2000', 5, 3, 'Berlin', 'Germany', '12.34N', '34.25W'],"
-			+ "['01.07.1985', 15, 3, 'Johannesburg', 'South Africa', '12.34N', '34.25W'],"
+
+			+ "['2012-01-01', 27.697, 0.329, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-02-01', 28.887, 0.213, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-03-01', 28.025, 0.395, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-04-01', 27.056, 0.347, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-05-01', 24.989, 0.461, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-06-01', 24.657, 0.321, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-07-01', 24.989, 0.461, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-08-01', 24.657, 0.321, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-09-01', 25.793, 0.401, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-10-01', 26.511, 1.526, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-11-01', 27.386, 0.394, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+			+ "['2012-12-01', 26.777, 0.528, 'Abidjan' ,'Côte D Ivoire', '5.63N', '3.23W'],"
+
 			
-			+ "['01.07.2001', 6, 2, 'Moscow', 'Russia', '12.34N', '34.25W']]");
+//			2013-01-01,27.751,0.856,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-02-01,29.021,0.467,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-03-01,29.129,0.306,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-04-01,28.626,0.219,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-05-01,27.652,0.16,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-06-01,26.157,0.245,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-07-01,24.951,0.221,Abidjan,Côte D'Ivoire,5.63N,3.23W
+//			2013-08-01,24.541,0.372,Abidjan,Côte D'Ivoire,5.63N,3.23W
+			+ "['2013-01-01', 27.751, 0.856, 'Abidjan', 'Côte D Ivoire', '5.63N', '3.23W']]");
 			
 			
 			
