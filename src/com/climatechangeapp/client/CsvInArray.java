@@ -195,7 +195,7 @@ public class CsvInArray {
 							
 							cellTableOfTestTemperatures.setRowCount(testTemp.size(), true);
 							cellTableOfTestTemperatures.setRowData(0, testTemp);
-							cellTableOfTestTemperatures.setPageSize(15);
+							cellTableOfTestTemperatures.setPageSize(testTemp.size());
 							//cellTableOfTestTemperatures.setVisibleRange(0, 228180);
 							
 							
