@@ -3,6 +3,7 @@ package com.climatechangeapp.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.climatechangeapp.server.CsvConverter;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsonUtils;
@@ -35,12 +36,33 @@ public class CsvInArray {
 	
 	private static Dashboard dashboard;
 
-	private SimplePager pager;
-
+	// Splits up a String line and convert it to a Temperature object
+	public static Temperature convertLine(String line) {
+		
+		String[] row = line.split(",");
+		
+		String date = row[0];
+		String averageTemp = row[1];
+		String averageTempUncertainty = row[2];
+		String city = row[3];
+		String country = row[4];
+		String latitude = row[5];
+		String longitude = row[6];
+		 		
+		return new Temperature(date, averageTemp, averageTempUncertainty, city, country, latitude, longitude);}
+	
+	//takes data from String ArrayList TestTemperatures and puts it into a TemperatureList
+	public static TemperatureList changeList(ArrayList<TestTemperatures> testList)	{
+		for (int i=0; i<testList.size(); i++) {
+			tempList.addTemperature(convertLine(testList.get(i).gettestString()));;
+		}
+		return tempList;
+	}
 	
 	public static void importData() {
 //		textArea.setText("initialized");
 
+		//HTTP Request call
 		try {
 			new RequestBuilder(RequestBuilder.GET, "GlobalLandTemperaturesByMajorCity_v1.txt").sendRequest("",
 					new RequestCallback() {
@@ -52,8 +74,7 @@ public class CsvInArray {
 							String text = resp.getText();
 							arr = text.split("\n");
 							
-							
-							
+							//printed in a textArea
 							int counter = 0;
 							for (String str : arr) {
 								
@@ -61,6 +82,7 @@ public class CsvInArray {
 									
 									textArea.setText(textArea.getText() + counter + " " + str + "\n");
 									
+									//String line saved in TestTemperatures and added to TestTemperatures Array<list
 									TestTemperatures tt = new TestTemperatures(str);
 								
 									testList.add(tt);
@@ -80,14 +102,12 @@ public class CsvInArray {
 
 							}
 							
-									
-							List<TestTemperatures> testTemp = new ArrayList<TestTemperatures>(){
+						
+							ArrayList<TestTemperatures> testTemp = new ArrayList<TestTemperatures>(){
 								
-								/**
-								 * 
-								 */
 								private static final long serialVersionUID = 1L;
-
+								
+								// It's important but why????
 								{
 									for(int i=0; i<testList.size(); i++){
 										add(new TestTemperatures(testList.get(i).gettestString()));
@@ -95,17 +115,68 @@ public class CsvInArray {
 									
 								}
 							};
-									
-									
-							CellTable<TestTemperatures> cellTableOfTestTemperatures = new CellTable<TestTemperatures>();
 							
-							// Add a text columns to show the details.
-							TextColumn<TestTemperatures> testStrings = new TextColumn<TestTemperatures>() {
+							
+							// create Celltable and change default row settings		
+							int pageSize=228180;
+							CellTable<TestTemperatures> cellTableOfTestTemperatures = new CellTable<TestTemperatures>(pageSize);
+							
+							// Add a text columns to show the date.
+							TextColumn<TestTemperatures> dateColumn = new TextColumn<TestTemperatures>() {
 								public String getValue(TestTemperatures object) {
 									return object.gettestString();
 								}
 							};
-							cellTableOfTestTemperatures.addColumn(testStrings, "Datenimport: 'Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'");
+							cellTableOfTestTemperatures.addColumn(dateColumn, "Datum");
+							
+							// Add a text columns to show the avg temperature.
+							TextColumn<TestTemperatures> avgTempColumn = new TextColumn<TestTemperatures>() {
+								public String getValue(TestTemperatures object) {
+									return object.gettestString();
+								}
+							};
+							cellTableOfTestTemperatures.addColumn(avgTempColumn, "Durchschnittliche Temperatur");
+							
+							// Add a text columns to show the avg temperature uncertainty.
+							TextColumn<TestTemperatures> avgTempUncertaintyColumn = new TextColumn<TestTemperatures>() {
+								public String getValue(TestTemperatures object) {
+									return object.gettestString();
+								}
+							};
+							cellTableOfTestTemperatures.addColumn(avgTempUncertaintyColumn, "Durchschnittliche Temperaturunsicherheit");
+							
+							// Add a text columns to show the city.
+							TextColumn<TestTemperatures> cityColumn = new TextColumn<TestTemperatures>() {
+								public String getValue(TestTemperatures object) {
+									return object.gettestString();
+								}
+							};
+							cellTableOfTestTemperatures.addColumn(cityColumn, "Stadt");
+							
+							// Add a text columns to show the country.
+							TextColumn<TestTemperatures> countryColumn = new TextColumn<TestTemperatures>() {
+								public String getValue(TestTemperatures object) {
+									return object.gettestString();
+								}
+							};
+							cellTableOfTestTemperatures.addColumn(countryColumn, "Land");
+							
+							// Add a text columns to show the latidude.
+							TextColumn<TestTemperatures> latidudeColumn = new TextColumn<TestTemperatures>() {
+								public String getValue(TestTemperatures object) {
+									return object.gettestString();
+								}
+							};
+							cellTableOfTestTemperatures.addColumn(latidudeColumn, "Längengrad");
+							
+							// Add a text columns to show the longitude.
+							TextColumn<TestTemperatures> longitudeColumn = new TextColumn<TestTemperatures>() {
+								public String getValue(TestTemperatures object) {
+									return object.gettestString();
+								}
+							};
+							cellTableOfTestTemperatures.addColumn(longitudeColumn, "Breitengrad");
+							
 							
 							vp.add(cellTableOfTestTemperatures);
 							
@@ -113,19 +184,19 @@ public class CsvInArray {
 							
 							cellTableOfTestTemperatures.setRowCount(testTemp.size(), true);
 							cellTableOfTestTemperatures.setRowData(0, testTemp);
-			//				cellTableOfTestTemperatures.setPageSize(15);
+							cellTableOfTestTemperatures.setPageSize(testTemp.size());
+							//cellTableOfTestTemperatures.setVisibleRange(0, 228180);
+							
+							
 							
 							SimplePager pager;
 
-							
-						    // create pager for page handling and set table as the display
+						    // Create pager for page handling and set table as the display
 							// Create a Pager to control the table.
 						    SimplePager.Resources pagerResources = GWT.create(SimplePager.Resources.class);
 						    pager = new SimplePager(TextLocation.CENTER, pagerResources, false, 0, true);
 						    pager.setDisplay(cellTableOfTestTemperatures);
 						    pager.setVisible(true);
-						    
-						    
 		
 						}
 
@@ -150,6 +221,8 @@ public class CsvInArray {
 		vp.add(textArea);
 		RootPanel.get("temperatureList").add(vp);
 		
+		changeList(testList);
+		
 	//	initialize();
 	}
 
@@ -159,6 +232,10 @@ public class CsvInArray {
 
 	public int getTemperatureListSize() {
 		return test.size();
+	}
+	
+	public TemperatureList getTemperatureList()	{
+		return tempList;
 	}
 
 //	public Temperature get(int i) {
