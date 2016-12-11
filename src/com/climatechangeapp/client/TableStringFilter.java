@@ -185,6 +185,7 @@ import com.googlecode.gwt.charts.client.format.PatternFormat;
 			// Generate data
 			JsArrayMixed dataArray = JsonUtils
 				.unsafeEval("[['Datum', 'Durchschnittliche Temperatur', 'Durchschnittliche Temperaturunsicherheit', 'Stadt', 'Land', 'Längengrad', 'Breitengrad'],"
+						
 						+ "['01.01.1970' , 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
 			+ "['01.01.1970', 23, 1, 'Berlin', 'Germany', '12.34N', '34.23W'],"
 			+ "['01.09.2014', 12, 2, 'TEST', 'Switzerland', '12.34N', '34.25W'],"
