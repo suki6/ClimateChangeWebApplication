@@ -20,7 +20,6 @@ public class ClimateChangeApplication implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 
-		WorldMap map = new WorldMap();
 		
 	//	TableVisualization tableV = new TableVisualization();
 		
@@ -38,6 +37,7 @@ public class ClimateChangeApplication implements EntryPoint {
 
 		//tbs.initialize();
 
+		WorldMap map = new WorldMap();
 		
 		SliderEntry mapSlider = new SliderEntry();
 	}

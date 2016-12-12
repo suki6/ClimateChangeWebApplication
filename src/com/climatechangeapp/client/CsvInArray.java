@@ -284,27 +284,27 @@ public class CsvInArray {
 
 	public static void draw() {
 
-		DataTable dataTable = DataTable.create();
-		dataTable.addColumn(ColumnType.STRING, "Datum");
-		dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperatur");
-		dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperaturunsicherheit");
-		dataTable.addColumn(ColumnType.STRING, "Stadt");
-		dataTable.addColumn(ColumnType.STRING, "Land");
-		dataTable.addColumn(ColumnType.STRING, "Längengrad");
-		dataTable.addColumn(ColumnType.STRING, "Breitengrad");
+		DataTable dataTable1 = DataTable.create();
+		dataTable1.addColumn(ColumnType.STRING, "Datum");
+		dataTable1.addColumn(ColumnType.STRING, "Durchschnittliche Temperatur");
+		dataTable1.addColumn(ColumnType.STRING, "Durchschnittliche Temperaturunsicherheit");
+		dataTable1.addColumn(ColumnType.STRING, "Stadt");
+		dataTable1.addColumn(ColumnType.STRING, "Land");
+		dataTable1.addColumn(ColumnType.STRING, "Längengrad");
+		dataTable1.addColumn(ColumnType.STRING, "Breitengrad");
 
-		dataTable.addRows(temperaturesList.size());
+		dataTable1.addRows(temperaturesList.size());
 
 		// Populate DataTable
 		int i = 0;
 		for (Temperature t : temperaturesList) {
-			dataTable.setValue(i, 0, temperaturesList.get(i).getDate());
-			dataTable.setValue(i, 1, temperaturesList.get(i).getAverageTemp());
-			dataTable.setValue(i, 2, temperaturesList.get(i).getAverageTempUncertainty());
-			dataTable.setValue(i, 3, temperaturesList.get(i).getCity());
-			dataTable.setValue(i, 4, temperaturesList.get(i).getCountry());
-			dataTable.setValue(i, 5, temperaturesList.get(i).getLongitude());
-			dataTable.setValue(i, 6, temperaturesList.get(i).getLatitude());
+			dataTable1.setValue(i, 0, temperaturesList.get(i).getDate());
+			dataTable1.setValue(i, 1, temperaturesList.get(i).getAverageTemp());
+			dataTable1.setValue(i, 2, temperaturesList.get(i).getAverageTempUncertainty());
+			dataTable1.setValue(i, 3, temperaturesList.get(i).getCity());
+			dataTable1.setValue(i, 4, temperaturesList.get(i).getCountry());
+			dataTable1.setValue(i, 5, temperaturesList.get(i).getLongitude());
+			dataTable1.setValue(i, 6, temperaturesList.get(i).getLatitude());
 			i++;
 		}
 
@@ -319,7 +319,7 @@ public class CsvInArray {
 
 		
 		// Draw the chart
-		table.draw(dataTable, options);
+		table.draw(dataTable1, options);
 
 		RootPanel.get("temperatureList").add(vp);
 	}
