@@ -13,6 +13,7 @@ import com.googlecode.gwt.charts.client.ChartLoader;
 import com.googlecode.gwt.charts.client.ChartPackage;
 import com.googlecode.gwt.charts.client.ChartType;
 import com.googlecode.gwt.charts.client.ChartWrapper;
+import com.googlecode.gwt.charts.client.ColumnType;
 import com.googlecode.gwt.charts.client.DataRow;
 import com.googlecode.gwt.charts.client.DataTable;
 import com.googlecode.gwt.charts.client.DataView;
@@ -21,6 +22,7 @@ import com.googlecode.gwt.charts.client.controls.filter.StringFilter;
 import com.googlecode.gwt.charts.client.controls.filter.StringFilterOptions;
 import com.googlecode.gwt.charts.client.options.MatchType;
 import com.googlecode.gwt.charts.client.table.TableOptions;
+import com.googlecode.gwt.charts.client.table.Table;
 import com.googlecode.gwt.charts.client.util.ChartHelper;
 import com.googlecode.gwt.charts.client.format.PatternFormat;
 
@@ -33,6 +35,8 @@ import com.googlecode.gwt.charts.client.format.PatternFormat;
 	public class TableStringFilter {
 		
 		private CsvInArray csvTest;
+		
+		private TemperatureList tempList;
 		
 		private Dashboard dashboard;
 		private ChartWrapper<TableOptions> tableWrapper;
@@ -178,8 +182,8 @@ import com.googlecode.gwt.charts.client.format.PatternFormat;
 			latitudeFilter.setOptions(stringFilterOptions5);
 			longitudeFilter.setOptions(stringFilterOptions6);
 			
-			ArrayList testList = new ArrayList<>();
-			testList = csvTest.getTemperatures();
+//			ArrayList testList = new ArrayList<>();
+//			testList = csvTest.getTemperatures();
 			
 			
 			// Generate data
@@ -215,6 +219,41 @@ import com.googlecode.gwt.charts.client.format.PatternFormat;
 			// Prepare the data
 			DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
 			
+//			DataTable dataTable = DataTable.create();
+//			dataTable.addColumn(ColumnType.STRING, "Datum");
+//			dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperatur");
+//			dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperaturunsicherheit");
+//			dataTable.addColumn(ColumnType.STRING, "Stadt");
+//			dataTable.addColumn(ColumnType.STRING, "Land");
+//			dataTable.addColumn(ColumnType.STRING, "Längengrad");
+//			dataTable.addColumn(ColumnType.STRING, "Breitengrad");
+//			
+//			ArrayList<Temperature> temperatureList1 = tempList.getTemperature();
+//			dataTable.addRows(temperatureList1.size());
+//			
+//			// Populate DataTable
+//			int i = 0;
+//			for (Temperature t : temperatureList1) {
+//				dataTable.setValue(i, 0, t.getDate());
+//				dataTable.setValue(i, 1, t.getAverageTemp());
+//				dataTable.setValue(i, 2, t.getAverageTempUncertainty());
+//				dataTable.setValue(i, 3, t.getCity());
+//				dataTable.setValue(i, 4, t.getCountry());
+//				dataTable.setValue(i, 5, t.getLongitude());
+//				dataTable.setValue(i, 6, t.getLatitude());
+//				i++;
+//			}
+//
+//			// Table options
+//			TableOptions options = TableOptions.create();
+//			// Enable row numbering
+//			options.setShowRowNumber(true);
+//			// Enable paging to improve the performance of displaying large tables
+//			options.setAlternatingRowStyle(true);
+//			// Limit the number of displayed movies per page to 100
+//			options.setPageSize(100);
+
+						
 			// Draw the chart
 			dashboard.bind(dateFilter, tableWrapper);
 			dashboard.bind(averageTempFilter, tableWrapper);

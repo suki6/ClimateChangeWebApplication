@@ -19,12 +19,20 @@ import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.googlecode.gwt.charts.client.ChartLoader;
+import com.googlecode.gwt.charts.client.ChartPackage;
+import com.googlecode.gwt.charts.client.ColumnType;
 import com.googlecode.gwt.charts.client.DataTable;
 import com.googlecode.gwt.charts.client.controls.Dashboard;
+import com.googlecode.gwt.charts.client.table.Table;
+import com.googlecode.gwt.charts.client.table.TableOptions;
 import com.googlecode.gwt.charts.client.util.ChartHelper;
 
 public class CsvInArray {
 
+	private static Table table;
+
+	
 	private static TextArea textArea = new TextArea();
 	private static TextArea textArea1 = new TextArea();
 	private static VerticalPanel vp = new VerticalPanel();
@@ -116,104 +124,104 @@ public class CsvInArray {
 							}
 							
 						
-							ArrayList<Temperature> testTemp = new ArrayList<Temperature>(){
-								
-								private static final long serialVersionUID = 1L;
-								
-								{
-									
-									for(int i=0; i<temperaturesList.size(); i++){
-										add(new Temperature(temperaturesList.get(i).getDate(), temperaturesList.get(i).getAverageTemp(), temperaturesList.get(i).getAverageTempUncertainty(), temperaturesList.get(i).getCity(), temperaturesList.get(i).getCountry(), temperaturesList.get(i).getLongitude(), temperaturesList.get(i).getLatitude()));
-										
-									}
-									
-								}
-							};
-							
-							
-							// create Celltable and change default row settings		
-							int pageSize=228180;
-							CellTable<Temperature> cellTableOfTestTemperatures = new CellTable<Temperature>(pageSize);
-							
-							// Add a text columns to show the date.
-							TextColumn<Temperature> dateColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getDate();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(dateColumn, "Datum");
-							
-							// Add a text columns to show the avg temperature.
-							TextColumn<Temperature> avgTempColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getAverageTemp();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(avgTempColumn, "Durchschnittliche Temperatur");
-							
-							// Add a text columns to show the avg temperature uncertainty.
-							TextColumn<Temperature> avgTempUncertaintyColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getAverageTempUncertainty();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(avgTempUncertaintyColumn, "Durchschnittliche Temperaturunsicherheit");
-							
-							// Add a text columns to show the city.
-							TextColumn<Temperature> cityColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getCity();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(cityColumn, "Stadt");
-							
-							// Add a text columns to show the country.
-							TextColumn<Temperature> countryColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getCountry();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(countryColumn, "Land");
-							
-							// Add a text columns to show the latidude.
-							TextColumn<Temperature> latidudeColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getLongitude();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(latidudeColumn, "Längengrad");
-							
-							// Add a text columns to show the longitude.
-							TextColumn<Temperature> longitudeColumn = new TextColumn<Temperature>() {
-								public String getValue(Temperature object) {
-									return object.getLatitude();
-								}
-							};
-							cellTableOfTestTemperatures.addColumn(longitudeColumn, "Breitengrad");
-							
-							
-							vp.add(cellTableOfTestTemperatures);
-							
-							RootPanel.get("temperatureList").add(vp);
-							
-							cellTableOfTestTemperatures.setRowCount(testTemp.size(), true);
-							cellTableOfTestTemperatures.setRowData(0, testTemp);
-							cellTableOfTestTemperatures.setPageSize(testTemp.size());
-							//cellTableOfTestTemperatures.setVisibleRange(0, 228180);
-							
-							
-							cellTableOfTestTemperatures.setVisibleRange(0, 50);
-			//				cellTableOfTestTemperatures.setPageSize(15);
-							
-							SimplePager pager;
-
-						    // Create pager for page handling and set table as the display
-							// Create a Pager to control the table.
-						    SimplePager.Resources pagerResources = GWT.create(SimplePager.Resources.class);
-						    pager = new SimplePager(TextLocation.CENTER, pagerResources, false, 0, true);
-						    pager.setDisplay(cellTableOfTestTemperatures);
-						    pager.setVisible(true);
-						    vp.add(pager);
+//							ArrayList<Temperature> testTemp = new ArrayList<Temperature>(){
+//								
+//								private static final long serialVersionUID = 1L;
+//								
+//								{
+//									
+//									for(int i=0; i<temperaturesList.size(); i++){
+//										add(new Temperature(temperaturesList.get(i).getDate(), temperaturesList.get(i).getAverageTemp(), temperaturesList.get(i).getAverageTempUncertainty(), temperaturesList.get(i).getCity(), temperaturesList.get(i).getCountry(), temperaturesList.get(i).getLongitude(), temperaturesList.get(i).getLatitude()));
+//										
+//									}
+//									
+//								}
+//							};
+//							
+//							
+//							// create Celltable and change default row settings		
+//							int pageSize=228180;
+//							CellTable<Temperature> cellTableOfTestTemperatures = new CellTable<Temperature>(pageSize);
+//							
+//							// Add a text columns to show the date.
+//							TextColumn<Temperature> dateColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getDate();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(dateColumn, "Datum");
+//							
+//							// Add a text columns to show the avg temperature.
+//							TextColumn<Temperature> avgTempColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getAverageTemp();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(avgTempColumn, "Durchschnittliche Temperatur");
+//							
+//							// Add a text columns to show the avg temperature uncertainty.
+//							TextColumn<Temperature> avgTempUncertaintyColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getAverageTempUncertainty();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(avgTempUncertaintyColumn, "Durchschnittliche Temperaturunsicherheit");
+//							
+//							// Add a text columns to show the city.
+//							TextColumn<Temperature> cityColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getCity();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(cityColumn, "Stadt");
+//							
+//							// Add a text columns to show the country.
+//							TextColumn<Temperature> countryColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getCountry();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(countryColumn, "Land");
+//							
+//							// Add a text columns to show the latidude.
+//							TextColumn<Temperature> latidudeColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getLongitude();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(latidudeColumn, "Längengrad");
+//							
+//							// Add a text columns to show the longitude.
+//							TextColumn<Temperature> longitudeColumn = new TextColumn<Temperature>() {
+//								public String getValue(Temperature object) {
+//									return object.getLatitude();
+//								}
+//							};
+//							cellTableOfTestTemperatures.addColumn(longitudeColumn, "Breitengrad");
+//							
+//							
+//							vp.add(cellTableOfTestTemperatures);
+//							
+//							RootPanel.get("temperatureList").add(vp);
+//							
+//							cellTableOfTestTemperatures.setRowCount(testTemp.size(), true);
+//							cellTableOfTestTemperatures.setRowData(0, testTemp);
+//							cellTableOfTestTemperatures.setPageSize(testTemp.size());
+//							//cellTableOfTestTemperatures.setVisibleRange(0, 228180);
+//							
+//							
+//							cellTableOfTestTemperatures.setVisibleRange(0, 50);
+//			//				cellTableOfTestTemperatures.setPageSize(15);
+//							
+//							SimplePager pager;
+//
+//						    // Create pager for page handling and set table as the display
+//							// Create a Pager to control the table.
+//						    SimplePager.Resources pagerResources = GWT.create(SimplePager.Resources.class);
+//						    pager = new SimplePager(TextLocation.CENTER, pagerResources, false, 0, true);
+//						    pager.setDisplay(cellTableOfTestTemperatures);
+//						    pager.setVisible(true);
+//						    vp.add(pager);
 		
 						    
 						}
@@ -260,17 +268,60 @@ public class CsvInArray {
 //	}
 
 
-	
-	public static void draw() {
-		JsArrayMixed dataArray = JsonUtils.unsafeEval(
-				"[test.get(0).getDate(), test.get(0).getAverageTemp(), test.get(0).getAverageTempUncertainty(), test.get(0).getCity(), test.get(0).getCountry(), test.get(0).getLatitude(), test.get(0).getLongitude()]");
+	public static void initialize() {
+		ChartLoader chartLoader = new ChartLoader(ChartPackage.TABLE);
+		chartLoader.loadApi(new Runnable() {
 
-		DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
-
-		dashboard.draw(dataTable);
-		vp.add(dashboard);
-		RootPanel.get("temperatureList").add(vp);
-		
-		
+			@Override
+			public void run() {
+				// Create and attach the chart
+				table = new Table();
+				vp.add(table);
+				draw();
+			}
+		});
 	}
+
+	public static void draw() {
+
+		DataTable dataTable = DataTable.create();
+		dataTable.addColumn(ColumnType.STRING, "Datum");
+		dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperatur");
+		dataTable.addColumn(ColumnType.STRING, "Durchschnittliche Temperaturunsicherheit");
+		dataTable.addColumn(ColumnType.STRING, "Stadt");
+		dataTable.addColumn(ColumnType.STRING, "Land");
+		dataTable.addColumn(ColumnType.STRING, "Längengrad");
+		dataTable.addColumn(ColumnType.STRING, "Breitengrad");
+
+		dataTable.addRows(temperaturesList.size());
+
+		// Populate DataTable
+		int i = 0;
+		for (Temperature t : temperaturesList) {
+			dataTable.setValue(i, 0, temperaturesList.get(i).getDate());
+			dataTable.setValue(i, 1, temperaturesList.get(i).getAverageTemp());
+			dataTable.setValue(i, 2, temperaturesList.get(i).getAverageTempUncertainty());
+			dataTable.setValue(i, 3, temperaturesList.get(i).getCity());
+			dataTable.setValue(i, 4, temperaturesList.get(i).getCountry());
+			dataTable.setValue(i, 5, temperaturesList.get(i).getLongitude());
+			dataTable.setValue(i, 6, temperaturesList.get(i).getLatitude());
+			i++;
+		}
+
+		// Table options
+		TableOptions options = TableOptions.create();
+		// Enable row numbering
+		options.setShowRowNumber(true);
+		// Enable paging to improve the performance of displaying large tables
+		options.setAlternatingRowStyle(true);
+		// Limit the number of displayed movies per page to 50
+		options.setPageSize(50);
+
+		
+		// Draw the chart
+		table.draw(dataTable, options);
+
+		RootPanel.get("temperatureList").add(vp);
+	}
+
 }

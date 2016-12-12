@@ -22,6 +22,8 @@ public class ClimateChangeApplication implements EntryPoint {
 
 		WorldMap map = new WorldMap();
 		
+	//	TableVisualization tableV = new TableVisualization();
+		
 		
   //  	TableFilter.initFilter();	    
 		
@@ -29,7 +31,7 @@ public class ClimateChangeApplication implements EntryPoint {
  		
 		CsvInArray.importData();
 		
-//		CsvInArray.initialize();
+		CsvInArray.initialize();
 //		CsvInArray.draw();
 		
 		TableStringFilter tbs = new TableStringFilter();
