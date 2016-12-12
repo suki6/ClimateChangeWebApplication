@@ -24,9 +24,9 @@ import com.googlecode.gwt.charts.client.geochart.GeoChartOptions;
  *
  */
 public class WorldMap {
-	protected GeoChart geoChart;
+	protected static GeoChart geoChart;
 	
-	protected VerticalPanel vp = new VerticalPanel();
+	protected static VerticalPanel vp = new VerticalPanel();
 
 	protected DockLayoutPanel RootLayoutPanel;
 	
@@ -37,8 +37,8 @@ public class WorldMap {
 	private static ArrayList<Temperature> temperaturesList = CsvInArray.getTemperaturesList();		//full Database
 	
 	public static void sliderUpdate() {
-		//method to update the map
-		actualYear = sliderEntry.getYear();			//Marked as comment cause of performance problems
+		actualYear = sliderEntry.getYear();
+		draw();
 	}
 
 	public WorldMap() {
@@ -63,11 +63,11 @@ public class WorldMap {
 		});
 	}
 	
-	private void valuesThisYear(DataTable dataTable) {
-		int j = 50;
-		for(int i = 0; i < temperaturesList.size(); i++) {							//TemperaturList = full database
+	private static void valuesThisYear(DataTable dataTable) {
+		int j = 0;
+		for(int i = 1; i < temperaturesList.size(); i++) {							//TemperaturList = full database
 			String StringDate = temperaturesList.get(i).getDate();					//change string to int
-			String StringYear = StringDate.substring(0, 3);
+			String StringYear = StringDate.substring(0, 3);							//Read year from date
 			int thisYear = Integer.parseInt(StringYear);
 			if(thisYear == actualYear) {												
 				dataTable.setValue(j, 0, temperaturesList.get(i).getCountry());		
@@ -77,6 +77,7 @@ public class WorldMap {
 				j++;
 			}
 		}
+		
 		// Set options
 		GeoChartOptions options = GeoChartOptions.create();
 		GeoChartColorAxis geoChartColorAxis = GeoChartColorAxis.create();
@@ -90,12 +91,13 @@ public class WorldMap {
 		geoChart.draw(dataTable, options);
 		
 		RootPanel.get("worldMap").add(vp);
+		
 	}
 	
 	/**
 	 * draws the worldmap with data of DataTable and marks them in the worldmap
 	 */
-	private void draw() {
+	private static void draw() {
 //		actualYear = sliderEntry.getYear();
 		
 		// Prepare the data
@@ -105,7 +107,6 @@ public class WorldMap {
 		dataTable.addColumn(ColumnType.NUMBER, "Temperature");
 		dataTable.addColumn(ColumnType.NUMBER, "Year");
 		dataTable.addRows(1000);
-		//valuesThisYear(dataTable);
 		
 		dataTable.setValue(0, 0, "Cote D'Ivoire");
 		dataTable.setValue(0, 1, "Abidjan");
