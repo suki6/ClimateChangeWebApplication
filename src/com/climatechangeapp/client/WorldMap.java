@@ -1,5 +1,7 @@
 package com.climatechangeapp.client;
 
+import java.util.ArrayList;
+
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
@@ -31,6 +33,9 @@ public class WorldMap {
 	private SliderEntry sliderEntry;
 	
 	public int actualYear;
+	//private String aYear = temperaturesList.get(0).getDate(); 
+	
+	private static ArrayList<Temperature> temperaturesList = new ArrayList<>();		//fullDatabase
 
 	public static void sliderUpdate() {
 		//method to update the map
@@ -57,7 +62,23 @@ public class WorldMap {
 			}
 		});
 	}
-
+	
+	private void valuesThisYear(DataTable dataTable) {
+		int j = 0;
+		for(int i = 0; i < temperaturesList.size(); i++) {							//TemperaturList = full database
+			String StringDate = temperaturesList.get(i).getDate();					//change string to int
+			String StringYear = StringDate.substring(StringDate.length()-4, StringDate.length());
+			int Year = Integer.parseInt(StringYear);
+			if(Year == actualYear) {												//If year = actualYear; row one must contain year only;
+				dataTable.setValue(j, 0, temperaturesList.get(i).getCountry());		
+				dataTable.setValue(j, 0, temperaturesList.get(i).getCity());		
+				dataTable.setValue(j, 0, temperaturesList.get(i).getAverageTemp());	
+				dataTable.setValue(j, 0, Year);
+				j++;
+			}
+		}
+	}
+	
 	/**
 	 * draws the worldmap with data of DataTable and marks them in the worldmap
 	 */
@@ -71,6 +92,8 @@ public class WorldMap {
 		dataTable.addColumn(ColumnType.NUMBER, "Temperature");
 		dataTable.addColumn(ColumnType.NUMBER, "Year");
 		dataTable.addRows(80);
+		valuesThisYear(dataTable);
+		
 		dataTable.setValue(0, 0, "Cote D'Ivoire");
 		dataTable.setValue(0, 1, "Abidjan");
 		dataTable.setValue(0, 2, 27.01758);
@@ -273,13 +296,6 @@ public class WorldMap {
 		dataTable.setValue(49, 3, 2011);
 
 
-		
-		
-		
-		
-		//		
-		
-		
 		
 		// Set options
 		GeoChartOptions options = GeoChartOptions.create();
