@@ -21,7 +21,6 @@ public class Temperature {
 	private String country;
 	private String latitude;
 	private String longitude; 
-	private int TemperaturAp;
 	
 	/**
 	 * Constructor of the class Temperature 
@@ -44,9 +43,10 @@ public class Temperature {
 		
 	}
 	
-	public float getTemp() {
+	public int getTemp() {								//Temperature as int for Map
 		float f = Float.parseFloat(averageTemp);
-		return f;
+		int a = (int)f;
+		return a;
 	}
 	
 	public Temperature() {
@@ -96,6 +96,4 @@ public class Temperature {
 	public String getLatitude() {
 		return latitude;
 	}
-	
-	
 }
