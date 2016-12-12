@@ -21,6 +21,7 @@ public class Temperature {
 	private String country;
 	private String latitude;
 	private String longitude; 
+	private int TemperaturAp;
 	
 	/**
 	 * Constructor of the class Temperature 
@@ -43,7 +44,10 @@ public class Temperature {
 		
 	}
 	
-
+	public float getTemp() {
+		float f = Float.parseFloat(averageTemp);
+		return f;
+	}
 	
 	public Temperature() {
 		// TODO Auto-generated constructor stub

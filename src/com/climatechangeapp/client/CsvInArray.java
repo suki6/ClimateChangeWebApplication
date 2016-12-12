@@ -34,6 +34,9 @@ public class CsvInArray {
 	private static ArrayList<TestTemperatures> testList = new ArrayList<>();
 	private static ArrayList<Temperature> temperaturesList = new ArrayList<>();
 
+	public static ArrayList<Temperature> getTemperaturesList() {				//For Map; Johannes
+		return temperaturesList;
+	}
 	
 	private static Dashboard dashboard;
 

@@ -32,11 +32,12 @@ public class WorldMap {
 	
 	private SliderEntry sliderEntry;
 	
-	public int actualYear;
+	public int actualYear = 2011;
 	//private String aYear = temperaturesList.get(0).getDate(); 
 	
-	private static ArrayList<Temperature> temperaturesList = new ArrayList<>();		//fullDatabase
-
+	//private static ArrayList<Temperature> temperaturesList = new ArrayList<>();				//full Database
+	private static ArrayList<Temperature> temperaturesList = CsvInArray.getTemperaturesList();		//full Database
+	
 	public static void sliderUpdate() {
 		//method to update the map
 	}
@@ -65,18 +66,32 @@ public class WorldMap {
 	
 	private void valuesThisYear(DataTable dataTable) {
 		int j = 0;
-		for(int i = 0; i < temperaturesList.size(); i++) {							//TemperaturList = full database
+		//for(int i = 0; i < temperaturesList.size(); i++) {							//TemperaturList = full database
+		for(int i = 0; i < 1000; i++) {											//TemperaturList in Test size
 			String StringDate = temperaturesList.get(i).getDate();					//change string to int
 			String StringYear = StringDate.substring(StringDate.length()-4, StringDate.length());
 			int Year = Integer.parseInt(StringYear);
 			if(Year == actualYear) {												//If year = actualYear; row one must contain year only;
 				dataTable.setValue(j, 0, temperaturesList.get(i).getCountry());		
-				dataTable.setValue(j, 0, temperaturesList.get(i).getCity());		
-				dataTable.setValue(j, 0, temperaturesList.get(i).getAverageTemp());	
-				dataTable.setValue(j, 0, Year);
+				dataTable.setValue(j, 1, temperaturesList.get(i).getCity());		
+				dataTable.setValue(j, 2, temperaturesList.get(i).getTemp());	//Problem: getAverageTemp() returns String instead of int or float.
+				dataTable.setValue(j, 3, Year);
 				j++;
 			}
 		}
+		// Set options
+		GeoChartOptions options = GeoChartOptions.create();
+		GeoChartColorAxis geoChartColorAxis = GeoChartColorAxis.create();
+		options.setColorAxis(geoChartColorAxis);
+		options.setBackgroundColor("blue");
+		options.setDatalessRegionColor("gray");
+		options.setHeight(760);
+		options.setWidth(1280);
+
+		// Draw the chart
+		geoChart.draw(dataTable, options);
+		
+		RootPanel.get("worldMap").add(vp);
 	}
 	
 	/**
@@ -93,7 +108,7 @@ public class WorldMap {
 		dataTable.addColumn(ColumnType.NUMBER, "Year");
 		dataTable.addRows(80);
 		valuesThisYear(dataTable);
-		
+		/*
 		dataTable.setValue(0, 0, "Cote D'Ivoire");
 		dataTable.setValue(0, 1, "Abidjan");
 		dataTable.setValue(0, 2, 27.01758);
@@ -295,7 +310,7 @@ public class WorldMap {
 		dataTable.setValue(49, 2, 28.234234);
 		dataTable.setValue(49, 3, 2011);
 
-
+*/
 		
 		// Set options
 		GeoChartOptions options = GeoChartOptions.create();
