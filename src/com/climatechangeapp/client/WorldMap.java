@@ -2,10 +2,7 @@ package com.climatechangeapp.client;
 
 import java.util.ArrayList;
 
-//import com.google.gwt.core.client.JsArrayString;
-//import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
-//import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwt.charts.client.ChartLoader;
@@ -66,7 +63,7 @@ public class WorldMap {
 	private static void valuesThisYear(DataTable dataTable) {
 		int j = 0;
 		for(int i = 1; i < temperaturesList.size(); i++) {							//TemperaturList = full database
-			String StringDate = temperaturesList.get(i).getDate();					//change string to int
+			String StringDate = temperaturesList.get(i).getDate();					
 			String StringYear = StringDate.substring(0, 3);							//Read year from date
 			int thisYear = Integer.parseInt(StringYear);
 			if(thisYear == actualYear) {												
